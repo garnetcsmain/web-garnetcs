@@ -1,740 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- JOSE LEE , AQUI ESTA LA CARPERTA DE TRABAJO 
-
-  https://workdrive.zoho.com/home/ujmv17592aeebc6ca4c0fba97b0ef22c35a37/teams/ujmv17592aeebc6ca4c0fba97b0ef22c35a37/ws/ujmv143ab679f84674253b2b6a0f5eb4ebebf/folders/rjnqx92cd08515c304f819e9bdbaf059729de -->
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>GCS</title>
-  <meta name="We Develop" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Append
-  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garnet CS - IT solutions for your company. Web development, cloud infrastructure, and IT operations support.">
+    <meta name="keywords" content="IT solutions, web development, cloud infrastructure, DevOps, IT operations">
+    <meta name="author" content="Garnet CS">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Garnet CS - IT Solutions">
+    <meta property="og:description" content="We provide IT solutions for your company or project.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://garnetcs.com">
+    <meta property="og:image" content="./assets/images/logo.png">
+    
+    <title>Garnet CS - IT Solutions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Logo a la izquierda -->
-        <img src="assets/img/favicon.png" alt="Garnet Logo" style="height: 40px;width: auto;">
-
-        <!-- Texto a la derecha -->
-        <div class="text-container">
-          <h1 class="sitename">Garnet</h1>
-          <span class="tagline">Consultancy Services</span>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                </a>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+                    <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+                    <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+                    
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <span class="lang-divider">|</span>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-pill btn-with-icon nav-cta" href="#contact">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.4 21 3 14.6 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.01l-2.2 2.22z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                    <span data-i18n="nav.scheduleCall">Schedule A Call</span>
+                </a>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero" class="active">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#features">Services</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-
-          <li><a href="index.html#team">Team</a></li>
-
-
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#contact">Schedule A Call</a>
-
-    </div>
-  </header>
-
-  <main class="main">
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/map-wooden.jpg" alt="" data-aos="fade-in">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100">Meet Us</h2>
-            <p data-aos="fade-up" data-aos-delay="200">We provide IT solutions for your company or project</p>
-          </div>
-          <!-- <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="sign-up-form"><input type="email" name="email"><input type="submit" value="????"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your request has been sent. Thank you!</div>
-            </form>
-          </div> -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="hero.title">Meet Us</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">We provide IT solutions for your company or project.</p>
+                <a class="btn btn-primary btn-pill btn-with-icon" href="#contact">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.4 21 3 14.6 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.01l-2.2 2.22z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero.cta">Schedule A Call</span>
+                </a>
+            </div>
         </div>
-      </div>
+    </section>
 
-    </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
+    <!-- Logos Section -->
+    <section class="logos-section">
+        <div class="container">
+            <h2 class="logos-title" data-i18n="logos.title">Logos</h2>
+            <div class="logos-grid">
+                <!-- Add your client/partner logos here -->
+                <div class="logo-item">
+                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                </div>
+            </div>
         </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-xl-center gy-5">
-
-          <div class="col-6"></div>
-          <div class="col-6 content">
-            <h3>About Us</h3>
-            <h2>Your success is our mission.</h2>
-            <p>
-              Founded in 2024, Garnet CS empowers small and medium-sized businesses with exceptional web application
-              development and IT operations support. We specialize in turning ideas into reality—designing, building,
-              and maintaining solutions tailored to your needs.
-
-              As a team of two seasoned professionals with diverse expertise, we bring a goal-oriented approach to every
-              project, exceeding expectations. Whether you need technical advice, team-building support, or a reliable
-              partner to manage your IT and development, Garnet CS is here to help.
-
-              If you lack the right team, we’ll help you build it or find the talent to bring your vision to life. At
-              Garnet CS, your success is our mission. Let’s build your future together.
-            </p>
-          </div>
-
-
-        </div>
-      </div>
-
-      </div>
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>WHERE WE COME FROM</h2>
-        <p>Our Expertise in Application Development and Cloud infrastructure</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <h2>Fintech Innovations</h2>
-            <h3>Payment Acceptance</h3>
-            <p>
-              We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a
-              groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end
-              encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The
-              success of this solution led to its acquisition and global implementation, showcasing our ability to
-              deliver secure and scalable cloud solutions. (Mobeewave).
-            </p>
-            <a href="https://www.apple.com/nz/business/tap-to-pay-on-iphone/" class="btn btn-get-started">Read More</a>
-          </div>
-          <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <div class="image-stack">
-              <img src="assets/img/features-light-1.jpg" alt="" class="stack-front">
-              <img src="assets/img/features-light-2.jpg" alt="" class="stack-back">
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-images">
+                    <img src="./assets/images/about-shapes.png" alt="About Garnet CS" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title" data-i18n="about.title">About Us</h2>
+                    <h3 class="section-subtitle color-primary" data-i18n="about.subtitle">Your success is our mission.</h3>
+                    <p class="about-description" data-i18n="about.description">
+                        Founded in 2024, Garnet CS empowers small and medium-sized businesses with exceptional web application development and IT operations support. We specialize in turning ideas into reality—designing, building, and maintaining solutions tailored to your needs. As a team of two seasoned professionals with diverse expertise, we bring a goal-oriented approach to every project, exceeding expectations. Whether you need technical advice, team-building support, or a reliable partner to manage your IT and development, Garnet CS is here to help. If you lack the right team, we'll help you build it or find the talent to bring your vision to life. At Garnet CS, your success is our mission. Let's build your future together.
+                    </p>
+                </div>
             </div>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-stretch justify-content-between features-item ">
-          <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-            <img src="assets/img/money-transfers.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-            <h3>Simplified International Transfers</h3>
-            <p>Our team played a key role in developing the international transfers module for Bancolombia, one of Latin
-              America’s largest financial institutions. This project focused on optimizing the user experience while
-              ensuring fast, secure transactions for millions of customers. Our expertise in fintech solutions has
-              directly enhanced the efficiency and reliability of critical financial operations.
-
-              Innovation in the Financial Sector
-              We contributed to key projects for Morgan Stanley and other financial institutions, enhancing platforms
-              and tools to maximize operational efficiency and ensure top-tier security in their services. Learn more
-            </p>
-            <a href="https://www.bancolombia.com/personas/aprender-es-facil/como-usar-banco/transferencias/transferencias-internacionales/1000"
-              class="btn btn-get-started align-self-start">Read More</a>
-          </div>
-        </div><!-- Features Item -->
-
-      </div>
-      <div class="container">
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <h2>WebApp Development</h2>
-            <h3>Global Microcomponent Visualization</h3>
-            <p>
-              Global Microcomponent Visualization
-              Developed advanced visualization tools for TechInsights, enabling clients to explore and understand
-              technological components efficiently.
-
-              IT Operations & Security
-              Managed and secured cloud environments with over 100 servers, ensuring PCI-DSS compliance, SLA
-              maintenance, and seamless cloud migrations.
-
-              Optimized operations through onboarding, process improvements, and compliance frameworks (NIST, SOC2,
-              ICFR).
-
-              Technologies: AWS, Terraform, Okta, Kubernetes.
-
-              (Experience across multiple companies.)
-            </p>
-          </div>
-          <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <div class="image-stack">
-              <img src="assets/img/web-dev.jpg" alt="" class="stack-front">
-              <img src="assets/img/web-design.jpg" alt="" class="stack-back">
-            </div>
-          </div>
-        </div><!-- Features Item -->
-
-    </section><!-- /Features Section -->
-
-
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>At Garnet CS, your success is our mission. Let’s build your future together.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Apps</li>
-            <li data-filter=".filter-product">Consultancy</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>ADM Management System</h4>
-                <p>ADM Management system is a powerful tool to control your store/business with multiple options and
-                  extensions to expand starting from $99/Month</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1"
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Cloud & Networking Consultancy</h4>
-                <p>Custom consultancy with an expert in DevOps/Networking</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1"
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/bluecal.PNG" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Custom Appointment Scheduler</h4>
-                <p>Appointment scheduler with custom dashboard for your business to integrate with a direct link, or in
-                  your website starting from $49/Month</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2"
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Application development with 10+ years of experience</h4>
-                <p>Web development consultancy with experts in the field, to plan/develop/release the future for your
-                  business</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2"
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Apple Store Integration with ADM Management Software</h4>
-                <p>With our platforms, we have a direct integration with Apple GSX designed to improve the performance
-                  of any repair store that uses apple platforms.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Complete development team for your platform.</h4>
-                <p>Have a dedicated development team from planning/design/development/release/support.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
         </div>
+    </section>
 
-      </div>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title text-center color-primary" data-i18n="services.title">WHERE WE COME FROM</h2>
+            <p class="section-subtitle text-center" data-i18n="services.subtitle">Our Expertise in Application Development and Cloud infrastructure.</p>
+            
+            <div class="services-cases">
+                <!-- Case 1 -->
+                <div class="service-case">
+                    <div class="case-content">
+                        <h3 class="case-category color-primary" data-i18n="services.cases.0.category">Fintech Innovations</h3>
+                        <h4 class="case-title color-secondary" data-i18n="services.cases.0.title">Payment Acceptance</h4>
+                        <p class="case-description" data-i18n="services.cases.0.description">
+                            We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The success of this solution led to its acquisition and global implementation, showcasing our ability to deliver secure and scalable cloud solutions. (Mobeewave).
+                        </p>
+                        <a class="btn btn-primary btn-small" href="#portfolio" data-i18n="services.cases.0.cta">Read More</a>
+                    </div>
+                    <div class="case-image">
+                        <img src="./assets/images/polygon-3.png" alt="Fintech Innovations" loading="lazy">
+                    </div>
+                </div>
 
+                <!-- Case 2 -->
+                <div class="service-case reverse">
+                    <div class="case-image">
+                        <div class="polygon-group">
+                            <img src="./assets/images/polygon-1.png" alt="International Transfers" class="polygon-back" loading="lazy">
+                            <img src="./assets/images/polygon-2.png" alt="International Transfers" class="polygon-front" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-category color-primary" data-i18n="services.cases.1.category">Simplified International Transfers</h3>
+                        <p class="case-description" data-i18n="services.cases.1.description">
+                            We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The success of this solution led to its acquisition and global implementation, showcasing our ability to deliver secure and scalable cloud solutions. (Mobeewave).
+                        </p>
+                        <a class="btn btn-primary btn-small" href="#portfolio" data-i18n="services.cases.1.cta">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="service-case">
+                    <div class="case-content">
+                        <h3 class="case-category color-primary" data-i18n="services.cases.2.category">WebApp Development</h3>
+                        <h4 class="case-title color-secondary" data-i18n="services.cases.2.title">Global Microcomponent Visualization</h4>
+                        <p class="case-description" data-i18n="services.cases.2.description">
+                            Global Microcomponent Visualization Developed advanced visualization tools for TechInsights, enabling clients to explore and understand technological components efficiently. IT Operations & Security Managed and secured cloud environments with over 100 servers, ensuring PCI-DSS compliance, SLA maintenance, and seamless cloud migrations. Optimized operations through onboarding, process improvements, and compliance frameworks (NIST, SOC2, ICFR). Technologies: AWS, Terraform, Okta, Kubernetes. (Experience across multiple companies.)
+                        </p>
+                    </div>
+                    <div class="case-image">
+                        <img src="./assets/images/polygon-4.png" alt="WebApp Development" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <h2 class="section-title text-center color-primary" data-i18n="portfolio.title">Portfolio</h2>
+            <p class="section-subtitle text-center" data-i18n="portfolio.subtitle">At Garnet CS, your success is our mission. Let's build your future together.</p>
+            
+            <div class="portfolio-carousel">
+                                <div class="portfolio-track" id="portfolioTrack">
+                    <!-- Portfolio items will be dynamically generated -->
+                </div>
+                            </div>
+        </div>
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="team section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>At Garnet CS, your success is our mission. Let’s build your future together.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="https://x.com/FreddyAparicio"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://www.linkedin.com/in/freddysulbaran/"><i class="bi bi-linkedin"></i></a>
-              </div>
+    <section class="team-section" id="team">
+        <div class="container">
+            <h2 class="section-title text-center color-primary" data-i18n="team.title">Team</h2>
+            <p class="section-subtitle text-center" data-i18n="team.subtitle">At Garnet CS, your success is our mission. Let's build your future together.</p>
+            
+            <div class="team-grid" id="teamGrid">
+                <!-- Team members will be dynamically generated -->
             </div>
-            <div class="member-info text-center">
-              <h4>Freddy Sulbaran</h4>
-              <span>Chief Executive Officer & CloudOps</span>
-              <p>Hakuna Matata 🎶</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
-            <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="https://www.linkedin.com/in/jose-david-hernandez-diaz-34342b125/"><i
-                    class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Jose David Hernandez</h4>
-              <span>Co-Founder & Full Stack Developer</span>
-              <p>Hello world!</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-            <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Jesica Hernandez</h4>
-              <span>Graphic Designer Leader</span>
-              <p></p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
-            <div class="member-img">
-              <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Andres Giraldo</h4>
-              <span>Front End Developer</span>
-              <p>When do we deliver?</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
-            <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Ana Giraldo</h4>
-              <span>Marketing Specialist</span>
-              <p> ***-***</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
-            <div class="member-img">
-              <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Josepha Palas</h4>
-              <span>Human Resources</span>
-              <p>Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi
-                cupiditate vel</p>
-            </div>
-          </div><!-- End Team Member -->
-
         </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
+    </section>
 
     <!-- How We Work Section -->
-    <section id="how-we-work" class="how-we-work section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Here’s How We Work</h2>
-        <p>Discover how we make collaboration simple, effective, and tailored to your needs.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <article>
-
-              <h3 class="title">Always Available</h3>
-              <p>Our fully online operations mean we are just a click away, no matter where you are.</p>
-
-            </article>
-          </div><!-- End work item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <article>
-
-              <h3 class="title">Flexible Hours</h3>
-              <p>We customize our work hours to suit your schedule while ensuring a healthy work-life balance for our
-                team.</p>
-
-            </article>
-          </div><!-- End work item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <article>
-
-              <h3 class="title">Tailored Pricing</h3>
-              <p>Whether hourly, per project, or task-based, we strive to match your budget and deliver value.</p>
-
-            </article>
-          </div><!-- End work item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <article>
-
-              <h3 class="title">Modern Collaboration</h3>
-              <p>Yes, we are on video calls all day, making remote collaboration feel personal and effective.</p>
-
-            </article>
-          </div><!-- End work item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <article>
-
-              <h3 class="title">Pro Tips for the Digital Age</h3>
-              <p>Struggling to adapt to the new way of working? We have got tips to make your transition smooth.</p>
-
-            </article>
-          </div><!-- End work item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <article>
-
-              <h3 class="title">Multilanguage Communication</h3>
-              <p>Our team is qualified to communicate in multiple languages like English/Spanish/French</p>
-
-            </article>
-          </div><!-- End work item -->
-
-        </div><!-- End how we work list -->
-
-      </div>
-
-    </section><!-- /How We Work Section -->
-
+    <section class="how-we-work-section" id="how-we-work">
+        <div class="container">
+            <h2 class="section-title text-center color-primary" data-i18n="howWeWork.title">Here's How We Work</h2>
+            <p class="section-subtitle text-center" data-i18n="howWeWork.subtitle">Discover how we make collaboration simple, effective, and tailored to your needs.</p>
+            
+            <div class="features-grid" id="featuresGrid">
+                <!-- Features will be dynamically generated -->
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center color-primary" data-i18n="contact.title">Contact</h2>
+            <p class="contact-intro text-center" data-i18n="contact.intro">
+                At Garnet CS, we believe in making connections as seamless and enjoyable as the solutions we deliver. We are a registered LLC in the USA, proudly embracing the life of digital nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday.
+            </p>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>At Garnet CS, we believe in making connections as seamless and enjoyable as the solutions we deliver. We are
-          a registered LLC in the USA, proudly embracing the life of digital nomads. Working fully remotely, we bring
-          our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6">
-
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <p>We are a registered LLC in the USA, proudly embracing the life of <strong>digital nomads</strong>
-                    nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might
-                    even pop by your corner of the globe someday!
-                  </p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone
-                    from our team will get back to you within 48 hours.</p>
-
-                  <p>Email: info@garnetcs.com</p>
-                  <p></p>
-                  <p></p>
-                  <p>Encrypted Email (ProtonMail): infogarnetcs@pm.me</p>
-                  <p>Old-School PGP: t6CDBBAA9124913E</p>
-                </div>
-
-              </div><!-- End Info Item -->
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="300">
-                  <i class="bi bi-lock"></i>
-                  <h3></h3>
-                  <p> For privacy and efficiency, we provide dedicated phone numbers, live chat access, and other direct
-                    communication details after we have agreed to work together. </p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="500">
-                  <i class="bi bi-clock"></i>
-                  <h3>Always Available</h3>
-                  <p>We customize our work hours to suit your schedule while ensuring a healthy work-life balance for
-                    our team.</p>
-                </div>
-              </div><!-- End Info Item -->
-
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h3 class="form-title color-primary" data-i18n="contact.form.title">Drop Us a Line</h3>
+                <p class="form-subtitle">
+                    <span data-i18n="contact.form.subtitle">We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from our team will</span>
+                    <span class="color-primary" data-i18n="contact.form.subtitleHighlight">get back to you within 48 hours</span>
+                </p>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name" data-i18n="contact.form.name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email" data-i18n="contact.form.email">Your Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required placeholder=" ">
+                        <label for="subject" data-i18n="contact.form.subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+                        <label for="message" data-i18n="contact.form.message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
+                </form>
             </div>
 
-          </div>
-
-          <div class="col-lg-6">
-
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="200">
-              <h3>Drop Us a Line</h3>
-              <p>We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from
-                our team will <strong>get back to you within 48 hours</strong></p>
-
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+            <!-- Contact Info Cards -->
+            <div class="contact-info-grid" id="contactInfoGrid">
+                <!-- Contact info cards will be dynamically generated -->
+            </div>
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Garnet CS</span>
-          </a>
-          <p>At our core, we are a team of two seasoned professionals with diverse expertise spanning multiple
-            industries and IT consultancy. Together, we bring a goal-oriented approach, ensuring that every solution we
-            deliver not only meets but exceeds expectations.</p>
-          <div class="social-links d-flex mt-4">
-          </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./assets/images/footer-logo.png" alt="Garnet CS Logo" loading="lazy">
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.usefulLinks.title">Useful Links</h4>
+                        <ul id="usefulLinksList">
+                            <!-- Will be populated dynamically -->
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.ourServices.title">Our Services</h4>
+                        <ul id="servicesList">
+                            <!-- Will be populated dynamically -->
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.contactUs.title">Contact Us</h4>
+                        <p>
+                            <span data-i18n="footer.contactUs.email">Email:</span>
+                            <span data-i18n="footer.contactUs.emailAddress">info@garnetcs.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© Copyright Garnet CS All Rights Reserved</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="index.html#features">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p><strong>Email:</strong> <span>info@garnetcs.com</span></p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="sitename">Garnet CS</strong> <span>All Rights Reserved</span></p>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+    <!-- Scripts -->
+    <script src="./assets/js/translations.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
-
 </html>

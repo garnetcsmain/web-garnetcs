@@ -1,218 +1,300 @@
-/**
-* Template Name: Append
-* Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+// ===================================
+// Global State
+// ===================================
+let currentLanguage = 'en';
 
-(function() {
-  "use strict";
+// ===================================
+// i18n Translation System
+// ===================================
+function getNestedProperty(obj, path) {
+    return path.split('.').reduce((current, prop) => current?.[prop], obj);
+}
 
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-  }
-
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
-
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
-
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
-
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
-
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
-
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aosInit);
-
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
+function translatePage(lang) {
+    currentLanguage = lang;
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = getNestedProperty(translations[lang], key);
+        
+        if (translation !== undefined && translation !== null) {
+            // Handle different element types
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translation;
+            } else {
+                element.textContent = translation;
+            }
         }
-      }, false);
     });
-
-  });
-
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+    
+    // Update language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-  });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Store preference
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // Re-render dynamic content
+    renderPortfolioItems();
+    renderTeamMembers();
+    renderFeatures();
+    renderContactInfo();
+    renderFooterLinks();
+}
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+// ===================================
+// Dynamic Content Rendering
+// ===================================
+function renderPortfolioItems() {
+    const track = document.getElementById('portfolioTrack');
+    if (!track) return;
+    
+    const projects = translations[currentLanguage].portfolio.projects;
+    track.innerHTML = projects.map(project => `
+        <div class="portfolio-item">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+        </div>
+    `).join('');
+}
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
+function renderTeamMembers() {
+    const grid = document.getElementById('teamGrid');
+    if (!grid) return;
+    
+    const members = translations[currentLanguage].team.members;
+    grid.innerHTML = members.map(member => `
+        <div class="team-member">
+            <div class="team-photo">
+                <img src="./assets/images/team-placeholder.png" alt="${member.name}" loading="lazy">
+            </div>
+            <h3 class="team-name">${member.name}</h3>
+            <p class="team-position">${member.position}</p>
+        </div>
+    `).join('');
+}
 
-  window.addEventListener("load", initSwiper);
+function renderFeatures() {
+    const grid = document.getElementById('featuresGrid');
+    if (!grid) return;
+    
+    const features = translations[currentLanguage].howWeWork.features;
+    const icons = ['icon-1.png', 'icon-2.png', 'icon-3.png', 'icon-4.png', 'icon-5.png', 'icon-6.png'];
+    
+    grid.innerHTML = features.map((feature, index) => `
+        <div class="feature-item">
+            <div class="feature-icon">
+                <img src="./assets/images/${icons[index]}" alt="${feature.title}" loading="lazy">
+            </div>
+            <h3 class="feature-title">${feature.title}</h3>
+            <p class="feature-description">${feature.description}</p>
+        </div>
+    `).join('');
+}
 
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+function renderContactInfo() {
+    const grid = document.getElementById('contactInfoGrid');
+    if (!grid) return;
+    
+    const info = translations[currentLanguage].contact.info;
+    const icons = ['icon-location.png', 'icon-envelope.png', 'icon-lock.png', 'icon-clock.png'];
+    
+    grid.innerHTML = info.map((item, index) => `
+        <div class="contact-info-card">
+            <div class="contact-info-icon">
+                <img src="./assets/images/${icons[index]}" alt="${item.title}" loading="lazy">
+            </div>
+            <h3 class="contact-info-title">${item.title}</h3>
+            <p class="contact-info-description">${item.description}</p>
+        </div>
+    `).join('');
+}
+
+function renderFooterLinks() {
+    const usefulLinks = document.getElementById('usefulLinksList');
+    const services = document.getElementById('servicesList');
+    
+    if (usefulLinks) {
+        const links = translations[currentLanguage].footer.usefulLinks.items;
+        usefulLinks.innerHTML = links.map(link => `<li><a href="#">${link}</a></li>`).join('');
     }
-  });
+    
+    if (services) {
+        const servicesList = translations[currentLanguage].footer.ourServices.items;
+        services.innerHTML = servicesList.map(service => `<li><a href="#">${service}</a></li>`).join('');
+    }
+}
 
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+// ===================================
+// Smooth Scrolling
+// ===================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#' || href === '') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            
+            if (target) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                const navMenu = document.getElementById('navMenu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+    });
+}
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+// ===================================
+// Mobile Menu
+// ===================================
+function initMobileMenu() {
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('navMenu');
+    
+    if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+    }
+}
 
-})();
+// ===================================
+// Portfolio Carousel
+// ===================================
+function initPortfolioCarousel() {
+    const track = document.getElementById('portfolioTrack');
+    if (!track) return;
+    
+    let startX = 0, scrollLeft = 0, isDown = false;
+    
+    track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        track.style.cursor = 'grabbing';
+    });
+    
+    track.addEventListener('mouseleave', () => {
+        isDown = false;
+        track.style.cursor = 'grab';
+    });
+    
+    track.addEventListener('mouseup', () => {
+        isDown = false;
+        track.style.cursor = 'grab';
+    });
+    
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 2;
+        track.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// ===================================
+// Contact Form
+// ===================================
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        if (!validateEmail(formData.email)) {
+            alert(currentLanguage === 'en' 
+                ? 'Please enter a valid email address.' 
+                : 'Por favor ingresa un correo electrónico válido.');
+            return;
+        }
+        
+        const subject = encodeURIComponent(formData.subject);
+        const body = encodeURIComponent(
+            `Name: ${formData.name}
+Email: ${formData.email}
+
+${formData.message}`
+        );
+        window.location.href = `mailto:info@garnetcs.com?subject=${subject}&body=${body}`;
+        form.reset();
+    });
+}
+
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// ===================================
+// Language Detection
+// ===================================
+function detectLanguage() {
+    const stored = localStorage.getItem('preferredLanguage');
+    if (stored && (stored === 'en' || stored === 'es')) return stored;
+    
+    const browserLang = navigator.language || navigator.userLanguage;
+    return browserLang.startsWith('es') ? 'es' : 'en';
+}
+
+// ===================================
+// Initialize All
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    const initialLang = detectLanguage();
+    translatePage(initialLang);
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            if (lang !== currentLanguage) translatePage(lang);
+        });
+    });
+    
+    initSmoothScroll();
+    initMobileMenu();
+    initContactForm();
+});
+
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    const currentScroll = window.pageYOffset;
+    navbar.style.boxShadow = currentScroll > 100 
+        ? '0px 4px 12px rgba(0, 0, 0, 0.15)' 
+        : '0px 4px 4px rgba(0, 0, 0, 0.25)';
+});
+
+console.log('%c🚀 Garnet CS Website Loaded', 'color: #8B0000; font-size: 16px; font-weight: bold;');

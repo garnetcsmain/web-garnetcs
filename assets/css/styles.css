@@ -230,7 +230,10 @@ img {
    Hero Section
    =================================== */
 .hero {
-    background-color: var(--color-gray);
+    background: linear-gradient(rgba(134, 134, 140, 0.3), rgba(134, 134, 140, 0.3)), url('../images/hero-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 180px 0 120px;
     position: relative;
 }
@@ -663,24 +666,50 @@ img {
     margin-top: 20px;
 }
 
+/* Drop Us a Line Section */
+.drop-us-line {
+    margin-top: 80px;
+}
+
+.drop-us-line-header {
+    margin-bottom: 60px;
+}
+
+.drop-us-line-title {
+    font-size: 64px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.drop-us-line-subtitle {
+    font-size: 24px;
+    color: var(--color-dark);
+    line-height: 1.5;
+    max-width: 574px;
+}
+
 .contact-info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    margin-top: 60px;
 }
 
 .contact-info-card {
     background-color: var(--color-light);
     border-radius: 4px;
-    padding: 40px 20px;
+    padding: 20px;
     text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-info-icon {
     width: 40px;
     height: 40px;
-    margin: 0 auto 20px;
+    margin: 22px auto 16px;
 }
 
 .contact-info-icon img {
@@ -693,14 +722,24 @@ img {
     font-size: 24px;
     font-weight: 600;
     color: var(--color-primary);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .contact-info-description {
     font-size: 16px;
     color: var(--color-dark);
     line-height: 1.6;
-    white-space: pre-line;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.contact-info-description .email-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.contact-info-description .text-highlight {
+    color: var(--color-primary);
 }
 
 /* ===================================
@@ -890,6 +929,18 @@ img {
     .portfolio-item {
         min-width: 280px;
     }
+    
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .drop-us-line-title {
+        font-size: 48px;
+    }
+    
+    .drop-us-line-subtitle {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -944,6 +995,18 @@ img {
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drop-us-line-title {
+        font-size: 36px;
+    }
+    
+    .drop-us-line-subtitle {
+        font-size: 18px;
     }
 }
 

@@ -1,0 +1,8 @@
+# AWS Configuration for Garnet CS Landing Page
+# Generated: January 25, 2026
+
+BUCKET_NAME=garnetcs.com
+REGION=us-east-1
+DISTRIBUTION_ID=E2VL43N95HPDEF
+CF_DOMAIN=d1xbzinnq45525.cloudfront.net
+CERT_ARN=arn:aws:acm:us-east-1:590447489888:certificate/98e26643-ddb7-40f6-bfe8-a9b7754b951c

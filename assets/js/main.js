@@ -81,38 +81,52 @@ function renderTeamMembers() {
 
 function renderFeatures() {
     const grid = document.getElementById('featuresGrid');
-    if (!grid) return;
+    if (!grid) {
+        console.warn('featuresGrid element not found');
+        return;
+    }
     
     const features = translations[currentLanguage].howWeWork.features;
-    const icons = ['icon-1.png', 'icon-2.png', 'icon-3.png', 'icon-4.png', 'icon-5.png', 'icon-6.png'];
+    const icons = ['icon-1.svg', 'icon-2.svg', 'icon-3.svg', 'icon-4.svg', 'icon-5.svg', 'icon-6.svg'];
+    
+    console.log('Rendering', features.length, 'features');
     
     grid.innerHTML = features.map((feature, index) => `
         <div class="feature-item">
             <div class="feature-icon">
-                <img src="./assets/images/${icons[index]}" alt="${feature.title}" loading="lazy">
+                <img src="./assets/images/${icons[index]}" alt="${feature.title}" loading="lazy" onerror="console.error('Failed to load:', this.src)">
             </div>
             <h3 class="feature-title">${feature.title}</h3>
             <p class="feature-description">${feature.description}</p>
         </div>
     `).join('');
+    
+    console.log('Features rendered successfully');
 }
 
 function renderContactInfo() {
     const grid = document.getElementById('contactInfoGrid');
-    if (!grid) return;
+    if (!grid) {
+        console.warn('contactInfoGrid element not found');
+        return;
+    }
     
     const info = translations[currentLanguage].contact.info;
-    const icons = ['icon-location.png', 'icon-envelope.png', 'icon-lock.png', 'icon-clock.png'];
+    const icons = ['icon-location.svg', 'icon-envelope.svg', 'icon-lock.svg', 'icon-clock.svg'];
+    
+    console.log('Rendering', info.length, 'contact info cards');
     
     grid.innerHTML = info.map((item, index) => `
         <div class="contact-info-card">
             <div class="contact-info-icon">
-                <img src="./assets/images/${icons[index]}" alt="${item.title}" loading="lazy">
+                <img src="./assets/images/${icons[index]}" alt="${item.title}" loading="lazy" onerror="console.error('Failed to load:', this.src)">
             </div>
             <h3 class="contact-info-title">${item.title}</h3>
-            <p class="contact-info-description">${item.description}</p>
+            <div class="contact-info-description">${item.description}</div>
         </div>
     `).join('');
+    
+    console.log('Contact info rendered successfully');
 }
 
 function renderFooterLinks() {
@@ -286,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initSmoothScroll();
     initMobileMenu();
+    initPortfolioCarousel();
     initContactForm();
 });
 

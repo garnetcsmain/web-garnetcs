@@ -17,7 +17,9 @@
     <title>Garnet CS - IT Solutions</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo.png">
+    <link rel="apple-touch-icon" href="./assets/images/logo.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,14 +229,8 @@
                 At Garnet CS, we believe in making connections as seamless and enjoyable as the solutions we deliver. We are a registered LLC in the USA, proudly embracing the life of digital nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday.
             </p>
 
-            <!-- Contact Form -->
-            <div class="contact-form-wrapper">
-                <h3 class="form-title color-primary" data-i18n="contact.form.title">Drop Us a Line</h3>
-                <p class="form-subtitle">
-                    <span data-i18n="contact.form.subtitle">We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from our team will</span>
-                    <span class="color-primary" data-i18n="contact.form.subtitleHighlight">get back to you within 48 hours</span>
-                </p>
-                
+            <!-- Contact Form - Temporarily Hidden -->
+            <!-- <div class="contact-form-wrapper">
                 <form class="contact-form" id="contactForm">
                     <div class="form-row">
                         <div class="form-group">
@@ -256,11 +252,22 @@
                     </div>
                     <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
                 </form>
-            </div>
+            </div> -->
 
-            <!-- Contact Info Cards -->
-            <div class="contact-info-grid" id="contactInfoGrid">
-                <!-- Contact info cards will be dynamically generated -->
+            <!-- Drop Us a Line Section -->
+            <div class="drop-us-line">
+                <div class="drop-us-line-header">
+                    <h3 class="drop-us-line-title" data-i18n="contact.dropUsLine.title">Drop Us a Line</h3>
+                    <p class="drop-us-line-subtitle">
+                        <span data-i18n="contact.dropUsLine.subtitle">We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from our team will </span>
+                        <span class="color-primary" data-i18n="contact.dropUsLine.subtitleHighlight">get back to you within 48 hours</span>
+                    </p>
+                </div>
+                
+                <!-- Contact Info Cards -->
+                <div class="contact-info-grid" id="contactInfoGrid">
+                    <!-- Contact info cards will be dynamically generated -->
+                </div>
             </div>
         </div>
     </section>

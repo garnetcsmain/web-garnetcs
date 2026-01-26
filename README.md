@@ -175,28 +175,36 @@ const response = await fetch('/api/contact', {
 
 ## 🚀 Deployment
 
-### Static Hosting Options
+### Deploy to Production (AWS S3 + CloudFront)
 
-- **AWS S3 + CloudFront**
-- **Netlify**
-- **Vercel**
-- **GitHub Pages**
-- **Firebase Hosting**
+The website is configured to deploy to AWS S3 with CloudFront CDN.
 
-### Deployment Steps (Example: Netlify)
+```bash
+./deploy.sh
+```
 
-1. Push code to GitHub
-2. Connect repository to Netlify
-3. Configure build settings (if any)
-4. Deploy!
+This will:
+1. Sync all files to S3 bucket
+2. Set appropriate cache headers and content types
+3. Invalidate CloudFront cache
+4. Wait for invalidation to complete
+5. Show deployment status
+
+### AWS Resources
+
+See `aws-config.txt` for AWS resource configuration.
+
+- **Domain**: garnetcs.com
+- **Hosting**: AWS S3 + CloudFront
+- **Region**: us-east-1
 
 ### Custom Domain Setup
 
 1. Purchase domain from registrar (e.g., Porkbun, Namecheap)
 2. Configure DNS records:
-   - A record pointing to hosting IP
+   - CNAME pointing to CloudFront distribution
    - CNAME for www subdomain
-3. Enable SSL certificate
+3. SSL certificate via AWS ACM
 
 ## 🔒 Security Considerations
 

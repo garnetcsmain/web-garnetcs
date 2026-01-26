@@ -161,23 +161,25 @@ const translations = {
       title: "Contact",
       intro: "At Garnet CS, we believe in making connections as seamless and enjoyable as the solutions we deliver. We are a registered LLC in the USA, proudly embracing the life of digital nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday.",
       form: {
-        title: "Drop Us a Line",
-        subtitle: "We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from our team will",
-        subtitleHighlight: "get back to you within 48 hours",
         name: "Your Name",
         email: "Your Email",
         subject: "Subject",
         message: "Message",
         submit: "Send Message"
       },
+      dropUsLine: {
+        title: "Drop Us a Line",
+        subtitle: "We love a good, old-fashioned email! Share as much detail as you can about your needs, and someone from our team will ",
+        subtitleHighlight: "get back to you within 48 hours"
+      },
       info: [
         {
           title: "Address",
-          description: "We are a registered LLC in the USA, proudly embracing the life of digital nomads nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday!"
+          description: "We are a registered LLC in the USA, proudly embracing the life of digital nomads. Working fully remotely, we bring our expertise to clients worldwide—and who knows, we might even pop by your corner of the globe someday!"
         },
         {
           title: "Email Us",
-          description: "We love a good, old-fashioned email!\nEmail: info@garnetcs.com\nEncrypted Email (ProtonMail): infogarnetcs@pm.me\nOld-School PGP: t6CDBBAA9124913E"
+          description: "We love a good, old-fashioned email! <span class='email-highlight'>Email: info@garnetcs.com</span> Encrypted Email (ProtonMail): infogarnetcs@pm.me Old-School PGP: t6CDBBAA9124913E"
         },
         {
           title: "Privacy",
@@ -371,14 +373,16 @@ const translations = {
       title: "Contacto",
       intro: "En Garnet CS, creemos en hacer conexiones tan fluidas y agradables como las soluciones que entregamos. Somos una LLC registrada en EE. UU., orgullosamente abrazando la vida de nómadas digitales. Trabajando completamente remotos, llevamos nuestra experiencia a clientes en todo el mundo, y quién sabe, ¡quizás pasemos por tu rincón del mundo algún día!",
       form: {
-        title: "Escríbenos",
-        subtitle: "¡Nos encanta un buen correo electrónico a la antigua! Comparte tantos detalles como puedas sobre tus necesidades, y alguien de nuestro equipo",
-        subtitleHighlight: "te responderá dentro de 48 horas",
         name: "Tu Nombre",
         email: "Tu Correo",
         subject: "Asunto",
         message: "Mensaje",
         submit: "Enviar Mensaje"
+      },
+      dropUsLine: {
+        title: "Escríbenos",
+        subtitle: "¡Nos encanta un buen correo electrónico a la antigua! Comparte tantos detalles como puedas sobre tus necesidades, y alguien de nuestro equipo ",
+        subtitleHighlight: "te responderá dentro de 48 horas"
       },
       info: [
         {
@@ -387,7 +391,7 @@ const translations = {
         },
         {
           title: "Envíanos un Correo",
-          description: "¡Nos encanta un buen correo electrónico a la antigua!\nCorreo: info@garnetcs.com\nCorreo Encriptado (ProtonMail): infogarnetcs@pm.me\nPGP Old-School: t6CDBBAA9124913E"
+          description: "¡Nos encanta un buen correo electrónico a la antigua! <span class='email-highlight'>Correo: info@garnetcs.com</span> Correo Encriptado (ProtonMail): infogarnetcs@pm.me PGP Old-School: t6CDBBAA9124913E"
         },
         {
           title: "Privacidad",

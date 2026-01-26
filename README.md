@@ -6,6 +6,12 @@ A modern, responsive, bilingual (English/Spanish) landing page for Garnet CS, bu
 
 This single-page website showcases Garnet CS's IT solutions, services, team, and contact information. The design is based on Figma specifications with a focus on clean code, performance, and accessibility.
 
+### Live URLs
+
+- https://garnetcs.com
+- https://www.garnetcs.com
+- CloudFront: https://d1xbzinnq45525.cloudfront.net
+
 ### Features
 
 - ✅ **Bilingual Support**: Seamless language switching between English and Spanish
@@ -27,6 +33,11 @@ web-garnetcs/
 │   │   ├── main.js         # Main JavaScript file
 │   │   └── translations.js # Bilingual content
 │   └── images/             # All images and icons
+├── deploy.sh               # S3 + CloudFront deployment script
+├── update-cloudfront.sh    # Custom domain + SSL updater
+├── test-icons.html         # Local icon debug page
+├── QUICKSTART.md           # Full AWS setup and deployment flow
+├── UPDATE_NOTES.md         # Change log and deployment notes
 ├── .gitignore
 └── README.md
 ```
@@ -157,7 +168,7 @@ Place images in `/assets/images/` and reference them:
 
 ## 📝 Contact Form
 
-The contact form currently logs submissions to the console. To implement backend functionality:
+The contact form markup is currently commented out in `index.html`. When enabled, it opens a `mailto:` draft to `info@garnetcs.com` from `assets/js/main.js`. To implement backend functionality:
 
 1. Create a backend endpoint (e.g., `/api/contact`)
 2. Update the `initContactForm()` function in `main.js`
@@ -178,6 +189,7 @@ const response = await fetch('/api/contact', {
 ### Deploy to Production (AWS S3 + CloudFront)
 
 The website is configured to deploy to AWS S3 with CloudFront CDN.
+For full infrastructure setup, see `QUICKSTART.md`.
 
 ```bash
 ./deploy.sh
@@ -189,6 +201,16 @@ This will:
 3. Invalidate CloudFront cache
 4. Wait for invalidation to complete
 5. Show deployment status
+
+### Update CloudFront Custom Domain/SSL
+
+If the domain or certificate changes, update and run:
+
+```bash
+./update-cloudfront.sh
+```
+
+This script pulls the current distribution config, applies aliases and ACM certificate settings, and updates CloudFront. It requires `aws` and `jq`.
 
 ### AWS Resources
 

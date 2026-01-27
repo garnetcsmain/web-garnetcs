@@ -83,9 +83,12 @@ aws s3 sync . s3://${BUCKET} \
     --exclude ".git/*" \
     --exclude ".gitignore" \
     --exclude ".DS_Store" \
+    --exclude "*/.DS_Store" \
     --exclude "deploy.sh" \
     --exclude "README.md" \
     --exclude "*.md" \
+    --exclude "aws-config.txt" \
+    --exclude "cf-config-*.json" \
     --exclude "figma/*" \
     --cache-control "public, max-age=3600" \
     --metadata-directive REPLACE

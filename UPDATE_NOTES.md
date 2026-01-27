@@ -1,6 +1,6 @@
 # Garnet CS Website - Update Notes
 
-**Last Updated:** January 26, 2026  
+**Last Updated:** January 27, 2026  
 **Status:** 🎉 LIVE on Custom Domain ✅
 
 ---
@@ -17,7 +17,35 @@ Successfully created and deployed the Garnet CS bilingual landing page to AWS S3
 
 ---
 
-## 📋 Recent Changes (January 25-26, 2026)
+## 📋 Recent Changes (January 27, 2026)
+
+### ✅ Content Aligned to Current Messaging
+- **About Us:** Replaced with the latest long-form company narrative.
+- **Services:** Updated to 4 cases:
+  1. Fintech Innovations (Mobeewave)
+  2. Visualización de Microcomponentes Global (TechInsights)
+  3. IT Operations & Security Leadership (Multiple Companies)
+  4. Innovation in the Financial Sector (Morgan Stanley + others)
+- **Fallback HTML:** Updated `index.html` fallback text to match translations.
+
+### ✅ CTAs and Footer Links Improved
+- **Schedule A Call:** Now uses `mailto:info@garnetcs.com` in both nav and hero.
+- **Footer useful links:** Now point to real anchors:
+  - Home/Inicio → `#hero`
+  - About/Nosotros → `#about`
+  - Services/Servicios → `#services`
+  - Others → `#contact`
+- **Team roles:** Hidden for now (names only).
+
+### ✅ SEO & Sharing Metadata Upgraded
+- **Meta description:** Updated to reflect current services.
+- **Open Graph:** Added `og:site_name`, `og:locale`, `og:locale:alternate`.
+- **Social preview image:** Uses absolute URL `https://garnetcs.com/assets/images/logo.png`.
+- **Twitter cards:** Added `twitter:*` metadata.
+
+---
+
+## 📋 Earlier Changes (January 25-26, 2026)
 
 ### ✅ Contact Section - "Drop Us a Line"
 - **Added:** Complete "Drop Us a Line" section with 4 info cards
@@ -200,16 +228,12 @@ Value: d1xbzinnq45525.cloudfront.net
 ## 📝 Pending Tasks
 
 ### High Priority
-- [x] ~~Add SSL validation DNS records in OpenSRS~~ ✅ DONE
-- [x] ~~Wait for SSL certificate validation (status: ISSUED)~~ ✅ DONE
-- [x] ~~Run `./update-cloudfront.sh` to enable custom domain~~ ✅ DONE
-- [x] ~~Add website DNS CNAME records~~ ✅ DONE
 - [ ] Create custom "G" favicon (32x32 or 64x64 PNG)
 
 ### Medium Priority
-- [ ] Implement contact form backend (AWS Lambda + SES)
+- [ ] Implement contact form backend (AWS Lambda + SES) or booking link
 - [ ] Add Google Analytics tracking (if desired)
-- [ ] Optimize hero-background.png file size (currently 1.6MB)
+- [ ] Optimize `assets/images/hero-background.png` file size (currently ~1.6MB)
 - [ ] Add more team member photos
 
 ### Low Priority

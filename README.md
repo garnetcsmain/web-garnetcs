@@ -168,7 +168,7 @@ Place images in `/assets/images/` and reference them:
 
 ## 📝 Contact Form
 
-The contact form markup is currently commented out in `index.html`. When enabled, it opens a `mailto:` draft to `info@garnetcs.com` from `assets/js/main.js`. To implement backend functionality:
+The contact form markup is currently commented out in `index.html`. Current CTAs (nav + hero) go directly to `mailto:info@garnetcs.com`. When the form is enabled, it opens a `mailto:` draft from `assets/js/main.js`. To implement backend functionality:
 
 1. Create a backend endpoint (e.g., `/api/contact`)
 2. Update the `initContactForm()` function in `main.js`

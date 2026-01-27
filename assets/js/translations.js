@@ -13,7 +13,7 @@ const translations = {
     // Hero Section
     hero: {
       title: "Meet Us",
-      subtitle: "We provide IT solutions for your company or project.",
+      subtitle: "Bilingual IT operations, cloud security leadership, and web application delivery.",
       tagline: "At Garnet CS, your success is our mission. Let's build your future together.",
       cta: "Schedule A Call"
     },
@@ -231,7 +231,7 @@ const translations = {
     // Sección Hero
     hero: {
       title: "Conócenos",
-      subtitle: "Proveemos soluciones de TI para tu empresa o proyecto.",
+      subtitle: "Operaciones de TI bilingües, liderazgo en seguridad cloud y entrega de aplicaciones web.",
       tagline: "En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos.",
       cta: "Agendar una Llamada"
     },

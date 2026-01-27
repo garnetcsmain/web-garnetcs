@@ -43,6 +43,13 @@ Successfully created and deployed the Garnet CS bilingual landing page to AWS S3
 - **Social preview image:** Uses absolute URL `https://garnetcs.com/assets/images/logo.png`.
 - **Twitter cards:** Added `twitter:*` metadata.
 
+### ✅ Safer Deployment Excludes
+- **Deploy script:** `deploy.sh` now excludes local artifacts:
+  - `*/.DS_Store`
+  - `aws-config.txt`
+  - `cf-config-*.json`
+- **Action recommended once:** remove any previously uploaded local artifacts from the S3 bucket.
+
 ---
 
 ## 📋 Earlier Changes (January 25-26, 2026)

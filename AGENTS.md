@@ -35,4 +35,10 @@
 ## Deployment & Configuration Tips
 
 - AWS configuration details live in `aws-config.txt` and `bucket-policy.json`.
+- `deploy.sh` excludes local artifacts like `*/.DS_Store`, `aws-config.txt`, and `cf-config-*.json`; keep those files out of public deploys.
 - If adding new file types, update `deploy.sh` to set correct MIME types and cache headers.
+
+## Agent Workflow Notes
+
+- Use `rg`/`rg --files` for fast search and discovery.
+- Prefer running Git and deployment commands directly; if the environment requires approval for networked Git/AWS actions, proceed with approval rather than skipping the step.

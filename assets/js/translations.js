@@ -27,7 +27,7 @@ const translations = {
     about: {
       title: "About Us",
       subtitle: "Your success is our mission.",
-      description: "Founded in 2024, Garnet CS empowers small and medium-sized businesses with exceptional web application development and IT operations support. We specialize in turning ideas into reality—designing, building, and maintaining solutions tailored to your needs. As a team of two seasoned professionals with diverse expertise, we bring a goal-oriented approach to every project, exceeding expectations. Whether you need technical advice, team-building support, or a reliable partner to manage your IT and development, Garnet CS is here to help. If you lack the right team, we'll help you build it or find the talent to bring your vision to life. At Garnet CS, your success is our mission. Let's build your future together."
+      description: "Founded in 2024, Garnet CS was built on a shared vision: to empower small and medium-sized businesses with exceptional support in web application development and seamless IT operations. We specialize in taking projects from concept to completion - designing, building, managing, and maintaining robust solutions tailored to our clients' needs. At our core, we are a team of two seasoned professionals with diverse expertise spanning multiple industries and IT consultancy. Together, we bring a goal-oriented approach, ensuring that every solution we deliver not only meets but exceeds expectations. We understand that not all businesses start with the resources or team needed to succeed. That is where we come in. Whether you are looking for technical advice, team-building support, or a partner to manage your IT and development needs, Garnet CS is here to guide you. If you do not have the right team in place, we'll help you build it or find the perfect talent to bring your vision to life - all while delivering the expertise and reliability your business deserves. At Garnet CS, your success is our mission. Let's build your future together."
     },
     
     // Services Section
@@ -38,20 +38,26 @@ const translations = {
         {
           category: "Fintech Innovations",
           title: "Payment Acceptance",
-          description: "We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The success of this solution led to its acquisition and global implementation, showcasing our ability to deliver secure and scalable cloud solutions. (Mobeewave).",
+          description: "We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The success of this solution led to its acquisition and global implementation, showcasing our ability to deliver secure and scalable cloud solutions. (Mobeewave). Read More.",
           cta: "Read More"
         },
         {
-          category: "Simplified International Transfers",
+          category: "Visualización de Microcomponentes Global",
           title: "",
-          description: "We contributed to the design, development, and maintenance of AWS Cloud infrastructure for a groundbreaking Phone Payment Acceptance solution. This included implementing advanced end-to-end encryption to secure credit card transactions and hosting a secure Proof of Concept (PoC) application. The success of this solution led to its acquisition and global implementation, showcasing our ability to deliver secure and scalable cloud solutions. (Mobeewave).",
-          cta: "Read More"
+          description: "Creamos soluciones de visualizacion avanzada para TechInsights, permitiendo a sus clientes explorar y comprender componentes tecnologicos de manera eficiente y clara. [Learn More..] https://app-techinsights-com.wistia.com/medias/76dfyib7t9",
+          cta: "Learn More"
         },
         {
-          category: "WebApp Development",
-          title: "Global Microcomponent Visualization",
-          description: "Global Microcomponent Visualization Developed advanced visualization tools for TechInsights, enabling clients to explore and understand technological components efficiently. IT Operations & Security Managed and secured cloud environments with over 100 servers, ensuring PCI-DSS compliance, SLA maintenance, and seamless cloud migrations. Optimized operations through onboarding, process improvements, and compliance frameworks (NIST, SOC2, ICFR). Technologies: AWS, Terraform, Okta, Kubernetes. (Experience across multiple companies.)",
-          cta: "Read More"
+          category: "IT Operations & Security Leadership",
+          title: "",
+          description: "Managed and secured cloud environments for over 100 Windows and Linux servers. Delivered PCI-DSS compliance, SLA maintenance, incident management, and seamless cloud migrations. Ensured disruption-free integrations, backups, and IT mergers for enterprise-level operations. Streamlined onboarding processes, enhanced documentation, and led integration initiatives to optimize operations and collaboration. Drove process improvements, developed compliance frameworks (NIST, SOC2, ICFR), and improved DLP across platforms. Delivered hands-on expertise with AWS, Terraform, Okta, and Kubernetes. (Multiple Companies).",
+          cta: ""
+        },
+        {
+          category: "Innovation in the Financial Sector",
+          title: "",
+          description: "We contributed to key projects for Morgan Stanley and other financial institutions, enhancing platforms and tools to maximize operational efficiency and ensure top-tier security in their services.",
+          cta: ""
         }
       ]
     },
@@ -239,7 +245,7 @@ const translations = {
     about: {
       title: "Acerca de Nosotros",
       subtitle: "Tu éxito es nuestra misión.",
-      description: "Fundada en 2024, Garnet CS capacita a pequeñas y medianas empresas con desarrollo excepcional de aplicaciones web y soporte de operaciones de TI. Nos especializamos en convertir ideas en realidad: diseñar, construir y mantener soluciones adaptadas a tus necesidades. Como equipo de dos profesionales experimentados con experiencia diversa, aportamos un enfoque orientado a objetivos en cada proyecto, superando expectativas. Ya sea que necesites asesoramiento técnico, soporte para formar equipos o un socio confiable para gestionar tu TI y desarrollo, Garnet CS está aquí para ayudar. Si te falta el equipo adecuado, te ayudaremos a formarlo o encontrar el talento para dar vida a tu visión. En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos."
+      description: "Fundada en 2024, Garnet CS se construyó sobre una visión compartida: empoderar a pequeñas y medianas empresas con soporte excepcional en desarrollo de aplicaciones web y operaciones de TI sin fricciones. Nos especializamos en llevar proyectos del concepto a la entrega: diseñar, construir, gestionar y mantener soluciones robustas adaptadas a las necesidades de nuestros clientes. En esencia, somos un equipo de dos profesionales con amplia experiencia en múltiples industrias y consultoría de TI. En conjunto, aportamos un enfoque orientado a objetivos, asegurando que cada solución no solo cumpla sino que supere las expectativas. Sabemos que no todas las empresas comienzan con los recursos o el equipo necesario para triunfar. Ahí es donde entramos. Ya sea que busques asesoría técnica, apoyo para construir equipos o un socio para gestionar tus necesidades de TI y desarrollo, Garnet CS está aquí para guiarte. Si no tienes el equipo adecuado, te ayudaremos a formarlo o a encontrar el talento ideal para dar vida a tu visión, siempre con la experiencia y confiabilidad que tu negocio merece. En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos."
     },
     
     // Sección Servicios
@@ -250,20 +256,26 @@ const translations = {
         {
           category: "Innovaciones Fintech",
           title: "Aceptación de Pagos",
-          description: "Contribuimos al diseño, desarrollo y mantenimiento de la infraestructura en la nube de AWS para una solución innovadora de Aceptación de Pagos Telefónicos. Esto incluyó la implementación de cifrado avanzado de extremo a extremo para asegurar transacciones con tarjetas de crédito y el alojamiento de una aplicación de Prueba de Concepto (PoC) segura. El éxito de esta solución llevó a su adquisición e implementación global, demostrando nuestra capacidad para ofrecer soluciones en la nube seguras y escalables. (Mobeewave).",
+          description: "Contribuimos al diseño, desarrollo y mantenimiento de la infraestructura en la nube de AWS para una solución innovadora de Aceptación de Pagos Telefónicos. Esto incluyó la implementación de cifrado avanzado de extremo a extremo para asegurar transacciones con tarjetas de crédito y el alojamiento de una aplicación de Prueba de Concepto (PoC) segura. El éxito de esta solución llevó a su adquisición e implementación global, demostrando nuestra capacidad para ofrecer soluciones en la nube seguras y escalables. (Mobeewave). Leer más.",
           cta: "Leer Más"
         },
         {
-          category: "Transferencias Internacionales Simplificadas",
+          category: "Visualización de Microcomponentes Global",
           title: "",
-          description: "Contribuimos al diseño, desarrollo y mantenimiento de la infraestructura en la nube de AWS para una solución innovadora de Aceptación de Pagos Telefónicos. Esto incluyó la implementación de cifrado avanzado de extremo a extremo para asegurar transacciones con tarjetas de crédito y el alojamiento de una aplicación de Prueba de Concepto (PoC) segura. El éxito de esta solución llevó a su adquisición e implementación global, demostrando nuestra capacidad para ofrecer soluciones en la nube seguras y escalables. (Mobeewave).",
-          cta: "Leer Más"
+          description: "Creamos soluciones de visualización avanzada para TechInsights, permitiendo a sus clientes explorar y comprender componentes tecnológicos de manera eficiente y clara. [Learn More..] https://app-techinsights-com.wistia.com/medias/76dfyib7t9",
+          cta: "Ver más"
         },
         {
-          category: "Desarrollo de Aplicaciones Web",
-          title: "Visualización Global de Microcomponentes",
-          description: "Visualización Global de Microcomponentes Desarrollamos herramientas avanzadas de visualización para TechInsights, permitiendo a los clientes explorar y comprender componentes tecnológicos de manera eficiente. Operaciones de TI y Seguridad Gestionamos y aseguramos entornos en la nube con más de 100 servidores, garantizando cumplimiento PCI-DSS, mantenimiento de SLA y migraciones fluidas a la nube. Optimizamos operaciones a través de incorporación, mejoras de procesos y marcos de cumplimiento (NIST, SOC2, ICFR). Tecnologías: AWS, Terraform, Okta, Kubernetes. (Experiencia en múltiples empresas.)",
-          cta: "Leer Más"
+          category: "Liderazgo en Operaciones de TI y Seguridad",
+          title: "",
+          description: "Gestionamos y aseguramos entornos en la nube para más de 100 servidores Windows y Linux. Entregamos cumplimiento PCI-DSS, mantenimiento de SLA, gestión de incidentes y migraciones a la nube sin fricciones. Aseguramos integraciones, respaldos y fusiones de TI sin interrupciones para operaciones de nivel empresarial. Optimizamos procesos de onboarding, reforzamos la documentación y lideramos iniciativas de integración para mejorar operaciones y colaboración. Impulsamos mejoras de procesos, desarrollamos marcos de cumplimiento (NIST, SOC2, ICFR) y fortalecimos DLP en todas las plataformas. Aportamos experiencia práctica con AWS, Terraform, Okta y Kubernetes. (Múltiples empresas).",
+          cta: ""
+        },
+        {
+          category: "Innovación en el Sector Financiero",
+          title: "",
+          description: "Contribuimos a proyectos clave para Morgan Stanley y otras instituciones financieras, mejorando plataformas y herramientas para maximizar la eficiencia operativa y garantizar seguridad de primer nivel en sus servicios.",
+          cta: ""
         }
       ]
     },

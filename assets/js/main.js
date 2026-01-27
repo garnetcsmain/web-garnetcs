@@ -74,7 +74,6 @@ function renderTeamMembers() {
                 <img src="./assets/images/team-placeholder.png" alt="${member.name}" loading="lazy">
             </div>
             <h3 class="team-name">${member.name}</h3>
-            <p class="team-position">${member.position}</p>
         </div>
     `).join('');
 }
@@ -132,15 +131,27 @@ function renderContactInfo() {
 function renderFooterLinks() {
     const usefulLinks = document.getElementById('usefulLinksList');
     const services = document.getElementById('servicesList');
+
+    const mapUsefulLink = (label) => {
+        const value = label.toLowerCase();
+        if (value.includes('home') || value.includes('inicio')) return '#hero';
+        if (value.includes('about') || value.includes('nosotros')) return '#about';
+        if (value.includes('services') || value.includes('servicios')) return '#services';
+        return '#contact';
+    };
     
     if (usefulLinks) {
         const links = translations[currentLanguage].footer.usefulLinks.items;
-        usefulLinks.innerHTML = links.map(link => `<li><a href="#">${link}</a></li>`).join('');
+        usefulLinks.innerHTML = links
+            .map(link => `<li><a href="${mapUsefulLink(link)}">${link}</a></li>`)
+            .join('');
     }
     
     if (services) {
         const servicesList = translations[currentLanguage].footer.ourServices.items;
-        services.innerHTML = servicesList.map(service => `<li><a href="#">${service}</a></li>`).join('');
+        services.innerHTML = servicesList
+            .map(service => `<li><a href="#services">${service}</a></li>`)
+            .join('');
     }
 }
 

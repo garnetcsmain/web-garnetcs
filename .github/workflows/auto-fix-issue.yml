@@ -1,0 +1,26 @@
+# ======================================================================================
+# Workflow: Auto Fix Issue
+# ======================================================================================
+# Usage:
+#   - Apply the label 'oz-agent' to any GitHub Issue.
+#   - This workflow will trigger, analyze the issue, and attempt to write code to fix it.
+#
+# Setup:
+#   - Ensure WARP_API_KEY is set in Repository Secrets.
+#   - Ensure the Action has write permissions for contents, issues, and pull-requests.
+#
+# Expected Output:
+#   - If a fix is found: A new Pull Request (fix/issue-NUMBER) is created and linked
+#     to the issue.
+#   - If no fix is found: The Agent comments on the issue explaining why.
+# ======================================================================================
+name: Auto Fix Issue
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  auto_fix:
+    uses: warpdotdev/oz-agent-action/.github/workflows/auto-fix-issue.yml@v1
+    secrets:
+      WARP_API_KEY: ${{ secrets.WARP_API_KEY }}

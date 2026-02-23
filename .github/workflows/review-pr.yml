@@ -1,0 +1,27 @@
+# ======================================================================================
+# Workflow: Auto PR Review
+# ======================================================================================
+# Usage:
+#   - Runs automatically when a Pull Request is opened or marked ready for review.
+#   - Analyzes the diff of the PR.
+#
+# Setup:
+#   - Ensure WARP_API_KEY is set in Repository Secrets.
+#   - The Agent needs read access to contents and write access to pull-requests.
+#
+# Expected Output:
+#   - Inline comments on the PR diff highlighting potential bugs, security issues,
+#     or style improvements.
+#   - A general summary comment if applicable.
+# ======================================================================================
+name: Auto PR Review
+on:
+  pull_request:
+    types:
+      - opened
+      - ready_for_review
+jobs:
+  review_pr:
+    uses: warpdotdev/oz-agent-action/.github/workflows/review-pr.yml@v1
+    secrets:
+      WARP_API_KEY: ${{ secrets.WARP_API_KEY }}

@@ -1,38 +1,96 @@
-name: Deploy to GCS
+name: Deploy to AWS
 
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - main
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
+    env:
+      BUCKET: garnetcs.com
+      DISTRIBUTION_ID: E2VL43N95HPDEF
+      AWS_REGION: us-east-1
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up GCP credentials
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcloud.json
-      run: |
-        echo "${{ secrets.GCP0 }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
-        echo "Credentials saved to: $GOOGLE_APPLICATION_CREDENTIALS"
-   
-    - name: Authenticate with GCP
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcloud.json
-      run: |
-        gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-        gcloud config set project garnet-cs-website
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: Test GCP Authentication
-      run: |
-        gcloud auth list
-        gcloud storage buckets list
+      - name: Sync files to S3
+        run: |
+          aws s3 sync . s3://$BUCKET \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".gitignore" \
+            --exclude ".github/*" \
+            --exclude ".DS_Store" \
+            --exclude "*/.DS_Store" \
+            --exclude "deploy.sh" \
+            --exclude "update-cloudfront.sh" \
+            --exclude "*.md" \
+            --exclude "aws-config.txt" \
+            --exclude "cf-config-*.json" \
+            --exclude "figma/*" \
+            --exclude "test-icons.html" \
+            --cache-control "public, max-age=3600" \
+            --metadata-directive REPLACE
 
-    - name: Deploy files to GCS
-      run: |
-        gsutil -m rsync -r . gs://garnetcs-temp/
+      - name: Set cache headers per file type
+        run: |
+          # HTML - short cache (5 minutes)
+          aws s3 cp s3://$BUCKET/index.html s3://$BUCKET/index.html \
+            --cache-control "public, max-age=300" \
+            --content-type "text/html; charset=utf-8" \
+            --metadata-directive REPLACE
+
+          # CSS - long cache (1 year)
+          aws s3 cp s3://$BUCKET/assets/css/ s3://$BUCKET/assets/css/ \
+            --recursive --exclude "*" --include "*.css" \
+            --cache-control "public, max-age=31536000" \
+            --content-type "text/css" \
+            --metadata-directive REPLACE || true
+
+          # JS - long cache (1 year)
+          aws s3 cp s3://$BUCKET/assets/js/ s3://$BUCKET/assets/js/ \
+            --recursive --exclude "*" --include "*.js" \
+            --cache-control "public, max-age=31536000" \
+            --content-type "application/javascript" \
+            --metadata-directive REPLACE || true
+
+          # PNG images - long cache (1 year)
+          aws s3 cp s3://$BUCKET/assets/images/ s3://$BUCKET/assets/images/ \
+            --recursive --exclude "*" --include "*.png" \
+            --cache-control "public, max-age=31536000" \
+            --content-type "image/png" \
+            --metadata-directive REPLACE || true
+
+          # SVG images - long cache (1 year)
+          aws s3 cp s3://$BUCKET/assets/images/ s3://$BUCKET/assets/images/ \
+            --recursive --exclude "*" --include "*.svg" \
+            --cache-control "public, max-age=31536000" \
+            --content-type "image/svg+xml" \
+            --metadata-directive REPLACE || true
+
+      - name: Invalidate CloudFront cache
+        run: |
+          INVALIDATION_ID=$(aws cloudfront create-invalidation \
+            --distribution-id $DISTRIBUTION_ID \
+            --paths "/*" \
+            --query 'Invalidation.Id' \
+            --output text)
+          echo "CloudFront invalidation created: $INVALIDATION_ID"
+          aws cloudfront wait invalidation-completed \
+            --distribution-id $DISTRIBUTION_ID \
+            --id $INVALIDATION_ID
+          echo "CloudFront cache invalidated successfully"

@@ -45,6 +45,7 @@ function translatePage(lang) {
     renderFeatures();
     renderContactInfo();
     renderFooterLinks();
+    initAboutTextReveal();
 }
 
 // ===================================
@@ -413,6 +414,74 @@ function initScrollAnimations() {
 }
 
 // ===================================
+// About Section: Scroll-Driven Word Reveal
+// ===================================
+let _aboutScrollHandler = null;
+
+function initAboutTextReveal() {
+    const description = document.querySelector('.about-description');
+    if (!description) return;
+
+    // Respect reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Get the raw text (either from textContent if already set, or from translations)
+    const text = description.textContent.trim();
+    if (!text) return;
+
+    // Split text into word spans
+    const words = text.split(/\s+/);
+    description.innerHTML = words.map(word =>
+        `<span class="word-reveal">${word}</span>`
+    ).join(' ');
+
+    const wordSpans = description.querySelectorAll('.word-reveal');
+    if (wordSpans.length === 0) return;
+
+    // Mark final CTA sentence for emphasis
+    const ctaStart = words.findLastIndex(w => w === "Let's" || w === 'Construyamos');
+    if (ctaStart !== -1) {
+        wordSpans.forEach((span, i) => {
+            if (i >= ctaStart) span.classList.add('word-reveal-cta');
+        });
+    }
+
+    // Remove previous scroll handler if exists (language switch)
+    if (_aboutScrollHandler) {
+        window.removeEventListener('scroll', _aboutScrollHandler);
+    }
+
+    // Scroll handler: calculate progress through about section
+    _aboutScrollHandler = () => {
+        const section = document.getElementById('about');
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Progress: 0 when section top enters viewport bottom,
+        //           1 when section bottom reaches viewport top
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        const start = viewportHeight * 0.6;   // section must be 40% into viewport before reveal starts
+        const end = -sectionHeight * 0.15;   // finish a bit earlier
+        const progress = Math.max(0, Math.min(1, (start - sectionTop) / (start - end)));
+
+        // Map progress to word highlighting
+        const totalWords = wordSpans.length;
+        const revealedCount = Math.floor(progress * totalWords);
+
+        wordSpans.forEach((span, i) => {
+            span.classList.toggle('visible', i < revealedCount);
+        });
+    };
+
+    window.addEventListener('scroll', _aboutScrollHandler, { passive: true });
+    // Trigger once on init for current scroll position
+    _aboutScrollHandler();
+}
+
+// ===================================
 // Initialize All
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -431,6 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initHeroParallax();
     initScrollAnimations();
+    initAboutTextReveal();
     initCardGlow();
     initBgGridScroll();
 });

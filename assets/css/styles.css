@@ -162,12 +162,40 @@ img {
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .btn-primary:hover {
     background-color: var(--color-secondary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4), 0 0 40px rgba(139, 0, 0, 0.15);
+    box-shadow: 0 4px 25px rgba(139, 0, 0, 0.5), 0 0 60px rgba(139, 0, 0, 0.2);
+}
+
+.btn-primary:hover::after {
+    animation: btnLightSweep 0.6s var(--ease-premium);
+}
+
+@keyframes btnLightSweep {
+    to {
+        left: 120%;
+    }
 }
 
 /* ===================================
@@ -373,6 +401,46 @@ img {
     }
 }
 
+/* One-time lightning pulse along hero lines */
+.hero-line-pulse {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    opacity: 0;
+    stroke-dasharray: 120 2000;
+    stroke-dashoffset: 120;
+    filter: drop-shadow(0 0 6px rgba(255, 40, 40, 0.8)) drop-shadow(0 0 20px rgba(139, 0, 0, 0.6));
+}
+
+.hero-line-pulse-1 {
+    stroke: rgba(255, 60, 60, 0.9);
+    animation: heroLightningPulse 1.8s var(--ease-premium) 2.8s forwards;
+}
+
+.hero-line-pulse-2 {
+    stroke: rgba(255, 40, 40, 0.7);
+    animation: heroLightningPulse 2.0s var(--ease-premium) 3.1s forwards;
+}
+
+.hero-line-pulse-3 {
+    stroke: rgba(255, 50, 50, 0.6);
+    animation: heroLightningPulse 1.6s var(--ease-premium) 3.3s forwards;
+}
+
+@keyframes heroLightningPulse {
+    0% {
+        opacity: 1;
+        stroke-dashoffset: 120;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        stroke-dashoffset: -2000;
+    }
+}
+
 /* Blurred gradient overlay that follows cursor */
 .hero-gradient-overlay {
     position: absolute;
@@ -460,6 +528,12 @@ img {
 }
 
 
+@property --logo-border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
 .logo-item {
     width: 100%;
     display: flex;
@@ -467,7 +541,30 @@ img {
     justify-content: center;
     transition: all 0.4s var(--ease-premium);
     position: relative;
-    overflow: hidden;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.logo-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--logo-border-angle),
+        transparent 60%,
+        rgba(255, 40, 40, 0.9) 75%,
+        rgba(255, 80, 80, 1) 78%,
+        rgba(255, 40, 40, 0.9) 81%,
+        transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-premium);
+    pointer-events: none;
 }
 
 .logo-item img {
@@ -477,10 +574,22 @@ img {
 
 .logo-item:hover {
     transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 40, 40, 0.3));
+}
+
+.logo-item:hover::before {
+    opacity: 1;
+    animation: logoLightningBorder 2s linear infinite;
 }
 
 .logo-item:hover img {
     opacity: 1;
+}
+
+@keyframes logoLightningBorder {
+    to {
+        --logo-border-angle: 360deg;
+    }
 }
 
 /* ===================================
@@ -519,6 +628,26 @@ img {
     font-size: 20px;
     line-height: 1.8;
     color: var(--color-text-muted);
+}
+
+/* Scroll-driven word reveal */
+.about-description .word-reveal {
+    opacity: 0.12;
+    transition: opacity 0.5s var(--ease-premium), transform 0.4s var(--ease-premium);
+    display: inline;
+    transform: translateY(2px);
+}
+
+.about-description .word-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CTA emphasis for final sentence */
+.about-description .word-reveal-cta.visible {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
 }
 
 /* ===================================
@@ -1060,6 +1189,70 @@ img {
     color: var(--color-primary);
 }
 
+/* Structured email methods */
+.email-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    text-align: left;
+}
+
+.email-method {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-decoration: none;
+    color: inherit;
+}
+
+a.email-method:hover .email-highlight {
+    text-decoration: underline;
+}
+
+.email-method-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+.pgp-key {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: var(--color-primary);
+    display: inline-block;
+    letter-spacing: 0.04em;
+    user-select: all;
+}
+
+.pgp-copy-btn {
+    font-family: var(--font-source-sans);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    margin-top: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.25s var(--ease-premium);
+    align-self: flex-start;
+}
+
+.pgp-copy-btn:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+}
+
 /* ===================================
    Footer
    =================================== */
@@ -1113,6 +1306,18 @@ img {
 }
 
 .footer-column ul li a:hover {
+    color: var(--color-primary);
+}
+
+.footer-column p a {
+    font-family: var(--font-source-sans);
+    font-size: 16px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column p a:hover {
     color: var(--color-primary);
 }
 
@@ -1663,6 +1868,22 @@ img {
     }
     .team-card::before,
     .team-card::after {
+        animation: none;
+    }
+    .about-description .word-reveal {
+        opacity: 1;
+        transition: none;
+        transform: none;
+    }
+    .hero-line-pulse {
+        animation: none;
+        opacity: 0;
+    }
+    .logo-item::before {
+        animation: none;
+        opacity: 0;
+    }
+    .btn-primary::after {
         animation: none;
     }
 }

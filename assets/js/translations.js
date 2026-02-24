@@ -13,7 +13,7 @@ const translations = {
     // Hero Section
     hero: {
       title: "Meet Us",
-      subtitle: "Bilingual IT operations, cloud security leadership, and web application delivery.",
+      subtitle: "Securing your cloud. Scaling your operations. Building what's next.",
       tagline: "At Garnet CS, your success is our mission. Let's build your future together.",
       cta: "Schedule A Call"
     },
@@ -152,7 +152,7 @@ const translations = {
         },
         {
           title: "Tailored Pricing",
-          description: "Whether hourly, per project, or task-based, we strive to match your budget and deliver value."
+          description: "From hourly engagements to full project delivery, we design flexible arrangements that align with your goals and maximize impact."
         },
         {
           title: "Modern Collaboration",
@@ -192,7 +192,7 @@ const translations = {
         },
         {
           title: "Email Us",
-          description: "We love a good, old-fashioned email! <span class='email-highlight'>Email: info@garnetcs.com</span> Encrypted Email (ProtonMail): infogarnetcs@pm.me Old-School PGP: t6CDBBAA9124913E"
+          description: "We love a good, old-fashioned email!<div class='email-methods'><a href='mailto:info@garnetcs.com' class='email-method'><span class='email-method-label'>Email</span><span class='email-highlight'>info@garnetcs.com</span></a><a href='mailto:infogarnetcs@pm.me' class='email-method'><span class='email-method-label'>Encrypted (ProtonMail)</span><span class='email-highlight'>infogarnetcs@pm.me</span></a><div class='email-method'><span class='email-method-label'>Old-School PGP</span><code class='pgp-key'>t6CDBBAA9124913E</code><button class='pgp-copy-btn' onclick=\"navigator.clipboard.writeText('t6CDBBAA9124913E').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})\" title='Copy to clipboard'>Copy</button></div></div>"
         },
         {
           title: "Privacy",
@@ -217,13 +217,12 @@ const translations = {
       },
       contactUs: {
         title: "Contact Us",
-        email: "Email:",
         emailAddress: "info@garnetcs.com"
       },
       copyright: "© Copyright Garnet CS All Rights Reserved"
     }
   },
-  
+
   es: {
     // Navegación
     nav: {
@@ -238,7 +237,7 @@ const translations = {
     // Sección Hero
     hero: {
       title: "Conócenos",
-      subtitle: "Operaciones de TI bilingües, liderazgo en seguridad cloud y entrega de aplicaciones web.",
+      subtitle: "Asegurando tu nube. Escalando tus operaciones. Construyendo lo que sigue.",
       tagline: "En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos.",
       cta: "Agendar una Llamada"
     },
@@ -377,7 +376,7 @@ const translations = {
         },
         {
           title: "Precios Personalizados",
-          description: "Ya sea por hora, por proyecto o por tarea, nos esforzamos por ajustarnos a tu presupuesto y ofrecer valor."
+          description: "Desde compromisos por hora hasta entregas completas de proyectos, diseñamos acuerdos flexibles que se alinean con tus objetivos y maximizan el impacto."
         },
         {
           title: "Colaboración Moderna",
@@ -417,7 +416,7 @@ const translations = {
         },
         {
           title: "Envíanos un Correo",
-          description: "¡Nos encanta un buen correo electrónico a la antigua! <span class='email-highlight'>Correo: info@garnetcs.com</span> Correo Encriptado (ProtonMail): infogarnetcs@pm.me PGP Old-School: t6CDBBAA9124913E"
+          description: "¡Nos encanta un buen correo electrónico a la antigua!<div class='email-methods'><a href='mailto:info@garnetcs.com' class='email-method'><span class='email-method-label'>Correo</span><span class='email-highlight'>info@garnetcs.com</span></a><a href='mailto:infogarnetcs@pm.me' class='email-method'><span class='email-method-label'>Encriptado (ProtonMail)</span><span class='email-highlight'>infogarnetcs@pm.me</span></a><div class='email-method'><span class='email-method-label'>PGP Old-School</span><code class='pgp-key'>t6CDBBAA9124913E</code><button class='pgp-copy-btn' onclick=\"navigator.clipboard.writeText('t6CDBBAA9124913E').then(()=>{this.textContent='¡Copiado!';setTimeout(()=>this.textContent='Copiar',1500)})\" title='Copiar al portapapeles'>Copiar</button></div></div>"
         },
         {
           title: "Privacidad",
@@ -442,7 +441,6 @@ const translations = {
       },
       contactUs: {
         title: "Contáctanos",
-        email: "Correo:",
         emailAddress: "info@garnetcs.com"
       },
       copyright: "© Copyright Garnet CS Todos los Derechos Reservados"

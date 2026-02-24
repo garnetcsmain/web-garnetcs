@@ -101,42 +101,47 @@ const translations = {
       members: [
         {
           name: "Freddy",
-          position: "Team Member",
+          position: "CEO",
           photo: "Freddy.webp"
         },
         {
           name: "Jose",
-          position: "Team Member",
+          position: "CTO",
           photo: "JoseDavid.webp"
         },
         {
+          name: "Jaidiver Sepulveda",
+          position: "Solutions Architect & Lead Engineer",
+          photo: "Jaidiver.webp"
+        },
+        {
           name: "Andres",
-          position: "Team Member",
+          position: "Developer",
           photo: "Andres.webp"
         },
         {
-          name: "Sebas",
-          position: "Team Member",
+          name: "Sebastian",
+          position: "Developer",
           photo: "Sebastian.webp"
         },
         {
           name: "Juan Estrada",
-          position: "Team Member",
+          position: "Project Manager",
           photo: "Juan.webp"
         },
         {
           name: "Danae",
-          position: "Team Member",
+          position: "Publicist & Design",
           photo: "Danae.webp"
         },
         {
           name: "Kaely",
-          position: "Team Member",
+          position: "Design",
           photo: "Kaely.webp"
         }
       ]
     },
-    
+
     // How We Work Section
     howWeWork: {
       title: "Here's How We Work",
@@ -321,42 +326,47 @@ const translations = {
       members: [
         {
           name: "Freddy",
-          position: "Miembro del equipo",
+          position: "CEO",
           photo: "Freddy.webp"
         },
         {
           name: "Jose",
-          position: "Miembro del equipo",
+          position: "CTO",
           photo: "JoseDavid.webp"
         },
         {
+          name: "Jaidiver Sepulveda",
+          position: "Arquitecto de Soluciones e Ingeniero Líder",
+          photo: "Jaidiver.webp"
+        },
+        {
           name: "Andres",
-          position: "Miembro del equipo",
+          position: "Desarrollador",
           photo: "Andres.webp"
         },
         {
-          name: "Sebas",
-          position: "Miembro del equipo",
+          name: "Sebastian",
+          position: "Desarrollador",
           photo: "Sebastian.webp"
         },
         {
           name: "Juan Estrada",
-          position: "Miembro del equipo",
+          position: "Gerente de Proyectos",
           photo: "Juan.webp"
         },
         {
           name: "Danae",
-          position: "Miembro del equipo",
+          position: "Publicista y Diseño",
           photo: "Danae.webp"
         },
         {
           name: "Kaely",
-          position: "Miembro del equipo",
+          position: "Diseño",
           photo: "Kaely.webp"
         }
       ]
     },
-    
+
     // Sección Cómo Trabajamos
     howWeWork: {
       title: "Así Trabajamos",

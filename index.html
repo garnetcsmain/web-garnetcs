@@ -39,18 +39,22 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
+    <!-- Animated Background Layers -->
+    <div class="bg-mesh" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="#" class="logo">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo">
+                    <img src="./assets/images/logo_gcs_wordsinwhite_transaparent background.png" alt="Garnet CS Logo">
                 </a>
                 
                 <div class="nav-menu" id="navMenu">
                     <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
                     <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
-                    <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#skillset" class="nav-link" data-i18n="nav.skillset">Skillset</a>
                     <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
                     <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
                     
@@ -89,6 +93,8 @@
         </svg>
         <!-- Blurred gradient overlay -->
         <div class="hero-gradient-overlay"></div>
+        <!-- Radial glow blob -->
+        <div class="hero-glow"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title" data-i18n="hero.title">Meet Us</h1>
@@ -127,7 +133,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about-section" id="about">
+    <section class="about-section section-light" id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-images">
@@ -215,17 +221,14 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
+    <!-- Skillset Section -->
+    <section class="skillset-section" id="skillset">
         <div class="container">
-            <h2 class="section-title text-center color-primary" data-i18n="portfolio.title">Portfolio</h2>
-            <p class="section-subtitle text-center" data-i18n="portfolio.subtitle">At Garnet CS, your success is our mission. Let's build your future together.</p>
-            
-            <div class="portfolio-carousel">
-                                <div class="portfolio-track" id="portfolioTrack">
-                    <!-- Portfolio items will be dynamically generated -->
-                </div>
-                            </div>
+            <h2 class="section-title text-center color-primary" data-i18n="skillset.title">Our Skillset</h2>
+            <p class="section-subtitle text-center" data-i18n="skillset.subtitle">Technologies and expertise we bring to every project.</p>
+            <div class="skillset-grid" id="skillsetGrid">
+                <!-- Skill cards will be dynamically generated -->
+            </div>
         </div>
     </section>
 
@@ -242,7 +245,7 @@
     </section>
 
     <!-- How We Work Section -->
-    <section class="how-we-work-section" id="how-we-work">
+    <section class="how-we-work-section section-light" id="how-we-work">
         <div class="container">
             <h2 class="section-title text-center color-primary" data-i18n="howWeWork.title">Here's How We Work</h2>
             <p class="section-subtitle text-center" data-i18n="howWeWork.subtitle">Discover how we make collaboration simple, effective, and tailored to your needs.</p>
@@ -309,7 +312,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./assets/images/footer-logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logo_gcs_wordsinwhite_transaparent background.png" alt="Garnet CS Logo" loading="lazy">
                 </div>
                 
                 <div class="footer-links">

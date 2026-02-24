@@ -135,14 +135,22 @@ function renderContactInfo() {
 
 function renderFooterLinks() {
     const usefulLinks = document.getElementById('usefulLinksList');
-    const services = document.getElementById('servicesList');
+    const servicesList = document.getElementById('ourServicesList');
 
     const mapUsefulLink = (label) => {
         const value = label.toLowerCase();
         if (value.includes('home') || value.includes('inicio')) return '#hero';
         if (value.includes('about') || value.includes('nosotros')) return '#about';
-        if (value.includes('services') || value.includes('servicios')) return '#services';
+        if (value.includes('skillset') || value.includes('habilidades')) return '#skillset';
+        if (value.includes('terms') || value.includes('términos')) return './terms.html';
+        if (value.includes('privacy') || value.includes('privacidad')) return './privacy.html';
         return '#contact';
+    };
+
+    const mapServiceLink = (label) => {
+        const value = label.toLowerCase();
+        if (value.includes('web development') || value.includes('desarrollo web')) return './web-development.html';
+        return '#services';
     };
 
     if (usefulLinks) {
@@ -152,10 +160,10 @@ function renderFooterLinks() {
             .join('');
     }
 
-    if (services) {
-        const servicesList = translations[currentLanguage].footer.ourServices.items;
-        services.innerHTML = servicesList
-            .map(service => `<li><a href="#services">${service}</a></li>`)
+    if (servicesList) {
+        const services = translations[currentLanguage].footer.ourServices.items;
+        servicesList.innerHTML = services
+            .map(link => `<li><a href="${mapServiceLink(link)}">${link}</a></li>`)
             .join('');
     }
 }

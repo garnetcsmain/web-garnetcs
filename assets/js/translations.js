@@ -214,7 +214,11 @@ const translations = {
     footer: {
       usefulLinks: {
         title: "Useful Links",
-        items: ["Home", "About us", "Services", "Terms of service", "Privacy policy"]
+        items: ["Home", "About us", "Skillset", "Terms of service", "Privacy policy"]
+      },
+      ourServices: {
+        title: "Our Services",
+        items: ["Web Development"]
       },
       contactUs: {
         title: "Contact Us",
@@ -439,7 +443,11 @@ const translations = {
     footer: {
       usefulLinks: {
         title: "Enlaces Útiles",
-        items: ["Inicio", "Nosotros", "Servicios", "Términos de servicio", "Política de privacidad"]
+        items: ["Inicio", "Nosotros", "Habilidades", "Términos de servicio", "Política de privacidad"]
+      },
+      ourServices: {
+        title: "Nuestros Servicios",
+        items: ["Desarrollo Web"]
       },
       contactUs: {
         title: "Contáctanos",

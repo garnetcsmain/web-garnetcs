@@ -135,21 +135,35 @@ function renderContactInfo() {
 
 function renderFooterLinks() {
     const usefulLinks = document.getElementById('usefulLinksList');
+    const servicesList = document.getElementById('ourServicesList');
 
     const mapUsefulLink = (label) => {
         const value = label.toLowerCase();
         if (value.includes('home') || value.includes('inicio')) return '#hero';
         if (value.includes('about') || value.includes('nosotros')) return '#about';
-        if (value.includes('services') || value.includes('servicios')) return '#skillset';
+        if (value.includes('skillset') || value.includes('habilidades')) return '#skillset';
         if (value.includes('terms') || value.includes('términos')) return './terms.html';
         if (value.includes('privacy') || value.includes('privacidad')) return './privacy.html';
         return '#contact';
+    };
+
+    const mapServiceLink = (label) => {
+        const value = label.toLowerCase();
+        if (value.includes('web development') || value.includes('desarrollo web')) return './web-development.html';
+        return '#services';
     };
 
     if (usefulLinks) {
         const links = translations[currentLanguage].footer.usefulLinks.items;
         usefulLinks.innerHTML = links
             .map(link => `<li><a href="${mapUsefulLink(link)}">${link}</a></li>`)
+            .join('');
+    }
+
+    if (servicesList) {
+        const services = translations[currentLanguage].footer.ourServices.items;
+        servicesList.innerHTML = services
+            .map(link => `<li><a href="${mapServiceLink(link)}">${link}</a></li>`)
             .join('');
     }
 }

@@ -211,10 +211,6 @@ const translations = {
         title: "Useful Links",
         items: ["Home", "About us", "Services", "Terms of service", "Privacy policy"]
       },
-      ourServices: {
-        title: "Our Services",
-        items: ["Web Design", "Web Development", "Product Management", "Marketing", "Graphic Design"]
-      },
       contactUs: {
         title: "Contact Us",
         emailAddress: "info@garnetcs.com"
@@ -434,10 +430,6 @@ const translations = {
       usefulLinks: {
         title: "Enlaces Útiles",
         items: ["Inicio", "Nosotros", "Servicios", "Términos de servicio", "Política de privacidad"]
-      },
-      ourServices: {
-        title: "Nuestros Servicios",
-        items: ["Diseño Web", "Desarrollo Web", "Gestión de Productos", "Marketing", "Diseño Gráfico"]
       },
       contactUs: {
         title: "Contáctanos",

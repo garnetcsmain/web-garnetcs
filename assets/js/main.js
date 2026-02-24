@@ -308,6 +308,8 @@ function initHeroParallax() {
     const overlay = hero.querySelector('.hero-gradient-overlay');
     const svgBg = hero.querySelector('.hero-svg-bg');
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     hero.addEventListener('mousemove', (e) => {
         const rect = hero.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;

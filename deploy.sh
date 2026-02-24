@@ -155,6 +155,17 @@ aws s3 cp s3://${BUCKET}/assets/images/ s3://${BUCKET}/assets/images/ \
     --metadata-directive REPLACE \
     > /dev/null 2>&1 || true
 
+# WebP images - long cache (1 year)
+aws s3 cp s3://${BUCKET}/assets/images/ s3://${BUCKET}/assets/images/ \
+    --region ${REGION} \
+    --recursive \
+    --exclude "*" \
+    --include "*.webp" \
+    --cache-control "public, max-age=31536000" \
+    --content-type "image/webp" \
+    --metadata-directive REPLACE \
+    > /dev/null 2>&1 || true
+
 print_success "Cache headers configured"
 
 # Invalidate CloudFront cache

@@ -330,7 +330,11 @@ function initHeroParallax() {
 // ===================================
 // Scroll-triggered Fade-in Animations
 // ===================================
+let _scrollObserver = null;
+
 function initScrollAnimations() {
+    if (_scrollObserver) _scrollObserver.disconnect();
+
     const animatedElements = document.querySelectorAll(
         '.service-case, .portfolio-item, .team-member, .feature-item, .contact-info-card, .about-content, .drop-us-line'
     );
@@ -340,7 +344,7 @@ function initScrollAnimations() {
         return;
     }
 
-    const observer = new IntersectionObserver((entries) => {
+    _scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 // Stagger animation for grid children

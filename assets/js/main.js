@@ -71,11 +71,14 @@ function renderTeamMembers() {
     grid.innerHTML = members.map(member => `
         <div class="team-member">
             <div class="team-photo">
-                <img src="./assets/images/team-placeholder.png" alt="${member.name}" loading="lazy">
+                <img src="./assets/images/people/${member.photo}" alt="${member.name}" loading="lazy">
             </div>
             <h3 class="team-name">${member.name}</h3>
         </div>
     `).join('');
+    
+    // Re-apply scroll animations to new elements
+    initScrollAnimations();
 }
 
 function renderFeatures() {
@@ -296,6 +299,80 @@ function detectLanguage() {
 }
 
 // ===================================
+// Hero Parallax Mouse Effect
+// ===================================
+function initHeroParallax() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const overlay = hero.querySelector('.hero-gradient-overlay');
+    const svgBg = hero.querySelector('.hero-svg-bg');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        if (overlay) {
+            overlay.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        }
+        if (svgBg) {
+            svgBg.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
+        }
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        if (overlay) overlay.style.transform = 'translate(0, 0)';
+        if (svgBg) svgBg.style.transform = 'translate(0, 0)';
+    });
+}
+
+// ===================================
+// Scroll-triggered Fade-in Animations
+// ===================================
+let _scrollObserver = null;
+
+function initScrollAnimations() {
+    if (_scrollObserver) _scrollObserver.disconnect();
+
+    const animatedElements = document.querySelectorAll(
+        '.service-case, .portfolio-item, .team-member, .feature-item, .contact-info-card, .about-content, .drop-us-line'
+    );
+
+    if (!('IntersectionObserver' in window)) {
+        animatedElements.forEach(el => el.classList.add('scroll-visible'));
+        return;
+    }
+
+    _scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Stagger animation for grid children
+                const delay = entry.target.dataset.animDelay || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('scroll-visible');
+                }, delay);
+                _scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    animatedElements.forEach((el, i) => {
+        el.classList.add('scroll-animate');
+        // Stagger siblings in grids
+        const parent = el.parentElement;
+        if (parent) {
+            const siblings = Array.from(parent.children).filter(c => c.classList.contains('scroll-animate'));
+            const idx = siblings.indexOf(el);
+            el.dataset.animDelay = idx * 80;
+        }
+        _scrollObserver.observe(el);
+    });
+}
+
+// ===================================
 // Initialize All
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -313,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initPortfolioCarousel();
     initContactForm();
+    initHeroParallax();
+    initScrollAnimations();
 });
 
 window.addEventListener('scroll', () => {

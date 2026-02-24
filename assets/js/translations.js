@@ -101,31 +101,38 @@ const translations = {
       members: [
         {
           name: "Freddy",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Freddy.webp"
         },
         {
           name: "Jose",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "JoseDavid.webp"
         },
         {
           name: "Andres",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Andres.webp"
         },
         {
           name: "Sebas",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Sebastian.webp"
         },
         {
           name: "Juan Estrada",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Juan.webp"
         },
         {
           name: "Danae",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Danae.webp"
         },
         {
           name: "Kaely",
-          position: "Team Member"
+          position: "Team Member",
+          photo: "Kaely.webp"
         }
       ]
     },
@@ -319,31 +326,38 @@ const translations = {
       members: [
         {
           name: "Freddy",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Freddy.webp"
         },
         {
           name: "Jose",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "JoseDavid.webp"
         },
         {
           name: "Andres",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Andres.webp"
         },
         {
           name: "Sebas",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Sebastian.webp"
         },
         {
           name: "Juan Estrada",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Juan.webp"
         },
         {
           name: "Danae",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Danae.webp"
         },
         {
           name: "Kaely",
-          position: "Miembro del equipo"
+          position: "Miembro del equipo",
+          photo: "Kaely.webp"
         }
       ]
     },

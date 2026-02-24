@@ -354,7 +354,7 @@ function initScrollAnimations() {
                 setTimeout(() => {
                     entry.target.classList.add('scroll-visible');
                 }, delay);
-                observer.unobserve(entry.target);
+                _scrollObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
@@ -368,7 +368,7 @@ function initScrollAnimations() {
             const idx = siblings.indexOf(el);
             el.dataset.animDelay = idx * 80;
         }
-        observer.observe(el);
+        _scrollObserver.observe(el);
     });
 }
 

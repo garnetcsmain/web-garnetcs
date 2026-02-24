@@ -4,7 +4,7 @@ const translations = {
     nav: {
       about: "About",
       services: "Services",
-      portfolio: "Portfolio",
+      skillset: "Skillset",
       team: "Team",
       contact: "Contact",
       scheduleCall: "Schedule A Call"
@@ -13,7 +13,7 @@ const translations = {
     // Hero Section
     hero: {
       title: "Meet Us",
-      subtitle: "Bilingual IT operations, cloud security leadership, and web application delivery.",
+      subtitle: "Securing your cloud. Scaling your operations. Building what's next.",
       tagline: "At Garnet CS, your success is our mission. Let's build your future together.",
       cta: "Schedule A Call"
     },
@@ -62,34 +62,34 @@ const translations = {
       ]
     },
     
-    // Portfolio Section
-    portfolio: {
-      title: "Portfolio",
-      subtitle: "At Garnet CS, your success is our mission. Let's build your future together.",
-      projects: [
+    // Skillset Section
+    skillset: {
+      title: "Our Skillset",
+      subtitle: "Technologies and expertise we bring to every project.",
+      skills: [
         {
-          title: "ADM Management System",
-          description: "ADM Management system is a powerful tool to control your store/business with multiple options and extensions to expand starting from $99/Month."
+          title: "AWS & Cloud Infrastructure",
+          description: "Design, deployment, and management of scalable cloud environments using AWS, Azure, and hybrid architectures."
         },
         {
-          title: "Cloud & Networking Consultancy",
-          description: "Custom consultancy with an expert in DevOps/Networking."
+          title: "DevOps & CI/CD",
+          description: "Automated pipelines, infrastructure as code with Terraform, and containerized deployments with Docker and Kubernetes."
         },
         {
-          title: "Custom Appointment Scheduler",
-          description: "Appointment scheduler with custom dashboard for your business to integrate with a direct link, or in your website starting from $49/Month."
+          title: "Web Application Development",
+          description: "Full-stack development of modern, responsive web applications using cutting-edge frameworks and best practices."
         },
         {
-          title: "Complete development team for your platform.",
-          description: "Have a dedicated development team from planning/design/development/release/support."
+          title: "Cloud Security & Compliance",
+          description: "PCI-DSS, SOC2, NIST compliance frameworks, DLP strategies, and end-to-end encryption implementation."
         },
         {
-          title: "Apple Store Integration with ADM Management Software",
-          description: "With our platforms, we have a direct integration with Apple GSX designed to improve the performance of any repair store that uses apple platforms."
+          title: "IT Operations & Support",
+          description: "24/7 infrastructure monitoring, incident management, SLA maintenance, and seamless cloud migrations."
         },
         {
-          title: "Application development with 10+ years of experience",
-          description: "Web development consultancy with experts in the field, to plan/develop/release the future for your business."
+          title: "Networking & Systems",
+          description: "Enterprise networking, server management across 100+ environments, and integration of Windows and Linux systems."
         }
       ]
     },
@@ -152,7 +152,7 @@ const translations = {
         },
         {
           title: "Tailored Pricing",
-          description: "Whether hourly, per project, or task-based, we strive to match your budget and deliver value."
+          description: "From hourly engagements to full project delivery, we design flexible arrangements that align with your goals and maximize impact."
         },
         {
           title: "Modern Collaboration",
@@ -192,7 +192,7 @@ const translations = {
         },
         {
           title: "Email Us",
-          description: "We love a good, old-fashioned email! <span class='email-highlight'>Email: info@garnetcs.com</span> Encrypted Email (ProtonMail): infogarnetcs@pm.me Old-School PGP: t6CDBBAA9124913E"
+          description: "We love a good, old-fashioned email!<div class='email-methods'><a href='mailto:info@garnetcs.com' class='email-method'><span class='email-method-label'>Email</span><span class='email-highlight'>info@garnetcs.com</span></a><a href='mailto:infogarnetcs@pm.me' class='email-method'><span class='email-method-label'>Encrypted (ProtonMail)</span><span class='email-highlight'>infogarnetcs@pm.me</span></a><div class='email-method'><span class='email-method-label'>Old-School PGP</span><code class='pgp-key'>t6CDBBAA9124913E</code><button class='pgp-copy-btn' onclick=\"navigator.clipboard.writeText('t6CDBBAA9124913E').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})\" title='Copy to clipboard'>Copy</button></div></div>"
         },
         {
           title: "Privacy",
@@ -217,19 +217,18 @@ const translations = {
       },
       contactUs: {
         title: "Contact Us",
-        email: "Email:",
         emailAddress: "info@garnetcs.com"
       },
       copyright: "© Copyright Garnet CS All Rights Reserved"
     }
   },
-  
+
   es: {
     // Navegación
     nav: {
       about: "Nosotros",
       services: "Servicios",
-      portfolio: "Portafolio",
+      skillset: "Habilidades",
       team: "Equipo",
       contact: "Contacto",
       scheduleCall: "Agendar una Llamada"
@@ -238,7 +237,7 @@ const translations = {
     // Sección Hero
     hero: {
       title: "Conócenos",
-      subtitle: "Operaciones de TI bilingües, liderazgo en seguridad cloud y entrega de aplicaciones web.",
+      subtitle: "Asegurando tu nube. Escalando tus operaciones. Construyendo lo que sigue.",
       tagline: "En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos.",
       cta: "Agendar una Llamada"
     },
@@ -287,34 +286,34 @@ const translations = {
       ]
     },
     
-    // Sección Portafolio
-    portfolio: {
-      title: "Portafolio",
-      subtitle: "En Garnet CS, tu éxito es nuestra misión. Construyamos tu futuro juntos.",
-      projects: [
+    // Sección Habilidades
+    skillset: {
+      title: "Nuestras Habilidades",
+      subtitle: "Tecnologías y experiencia que aportamos a cada proyecto.",
+      skills: [
         {
-          title: "Sistema de Gestión ADM",
-          description: "El sistema de gestión ADM es una herramienta poderosa para controlar tu tienda/negocio con múltiples opciones y extensiones para expandir desde $99/Mes."
+          title: "AWS e Infraestructura Cloud",
+          description: "Diseño, despliegue y gestión de entornos cloud escalables usando AWS, Azure y arquitecturas híbridas."
         },
         {
-          title: "Consultoría de Cloud y Networking",
-          description: "Consultoría personalizada con un experto en DevOps/Networking."
+          title: "DevOps y CI/CD",
+          description: "Pipelines automatizados, infraestructura como código con Terraform y despliegues containerizados con Docker y Kubernetes."
         },
         {
-          title: "Programador de Citas Personalizado",
-          description: "Programador de citas con panel personalizado para tu negocio para integrar con un enlace directo, o en tu sitio web desde $49/Mes."
+          title: "Desarrollo de Aplicaciones Web",
+          description: "Desarrollo full-stack de aplicaciones web modernas y responsivas usando frameworks de vanguardia y mejores prácticas."
         },
         {
-          title: "Equipo de desarrollo completo para tu plataforma.",
-          description: "Ten un equipo de desarrollo dedicado desde planificación/diseño/desarrollo/lanzamiento/soporte."
+          title: "Seguridad Cloud y Cumplimiento",
+          description: "Marcos de cumplimiento PCI-DSS, SOC2, NIST, estrategias DLP e implementación de cifrado de extremo a extremo."
         },
         {
-          title: "Integración de Apple Store con Software de Gestión ADM",
-          description: "Con nuestras plataformas, tenemos una integración directa con Apple GSX diseñada para mejorar el rendimiento de cualquier tienda de reparación que utilice plataformas Apple."
+          title: "Operaciones de TI y Soporte",
+          description: "Monitoreo de infraestructura 24/7, gestión de incidentes, mantenimiento de SLA y migraciones cloud sin fricciones."
         },
         {
-          title: "Desarrollo de aplicaciones con más de 10 años de experiencia",
-          description: "Consultoría de desarrollo web con expertos en el campo, para planificar/desarrollar/lanzar el futuro de tu negocio."
+          title: "Redes y Sistemas",
+          description: "Redes empresariales, gestión de servidores en más de 100 entornos e integración de sistemas Windows y Linux."
         }
       ]
     },
@@ -377,7 +376,7 @@ const translations = {
         },
         {
           title: "Precios Personalizados",
-          description: "Ya sea por hora, por proyecto o por tarea, nos esforzamos por ajustarnos a tu presupuesto y ofrecer valor."
+          description: "Desde compromisos por hora hasta entregas completas de proyectos, diseñamos acuerdos flexibles que se alinean con tus objetivos y maximizan el impacto."
         },
         {
           title: "Colaboración Moderna",
@@ -417,7 +416,7 @@ const translations = {
         },
         {
           title: "Envíanos un Correo",
-          description: "¡Nos encanta un buen correo electrónico a la antigua! <span class='email-highlight'>Correo: info@garnetcs.com</span> Correo Encriptado (ProtonMail): infogarnetcs@pm.me PGP Old-School: t6CDBBAA9124913E"
+          description: "¡Nos encanta un buen correo electrónico a la antigua!<div class='email-methods'><a href='mailto:info@garnetcs.com' class='email-method'><span class='email-method-label'>Correo</span><span class='email-highlight'>info@garnetcs.com</span></a><a href='mailto:infogarnetcs@pm.me' class='email-method'><span class='email-method-label'>Encriptado (ProtonMail)</span><span class='email-highlight'>infogarnetcs@pm.me</span></a><div class='email-method'><span class='email-method-label'>PGP Old-School</span><code class='pgp-key'>t6CDBBAA9124913E</code><button class='pgp-copy-btn' onclick=\"navigator.clipboard.writeText('t6CDBBAA9124913E').then(()=>{this.textContent='¡Copiado!';setTimeout(()=>this.textContent='Copiar',1500)})\" title='Copiar al portapapeles'>Copiar</button></div></div>"
         },
         {
           title: "Privacidad",
@@ -442,7 +441,6 @@ const translations = {
       },
       contactUs: {
         title: "Contáctanos",
-        email: "Correo:",
         emailAddress: "info@garnetcs.com"
       },
       copyright: "© Copyright Garnet CS Todos los Derechos Reservados"

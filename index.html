@@ -39,18 +39,22 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
+    <!-- Animated Background Layers -->
+    <div class="bg-mesh" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="#" class="logo">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo">
+                    <img src="./assets/images/logo_gcs_wordsinwhite_transaparent background.png" alt="Garnet CS Logo">
                 </a>
                 
                 <div class="nav-menu" id="navMenu">
                     <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
                     <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
-                    <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#skillset" class="nav-link" data-i18n="nav.skillset">Skillset</a>
                     <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
                     <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
                     
@@ -86,13 +90,19 @@
             <path class="hero-line hero-line-2" d="M-50 350 Q 360 150, 720 350 T 1490 350" />
             <path class="hero-line hero-line-3" d="M-50 400 Q 360 200, 720 400 T 1490 400" />
             <path class="hero-line hero-line-4" d="M-50 250 Q 360 50, 720 250 T 1490 250" />
+            <!-- Lightning pulse overlay -->
+            <path class="hero-line-pulse hero-line-pulse-1" d="M-50 300 Q 360 100, 720 300 T 1490 300" />
+            <path class="hero-line-pulse hero-line-pulse-2" d="M-50 350 Q 360 150, 720 350 T 1490 350" />
+            <path class="hero-line-pulse hero-line-pulse-3" d="M-50 400 Q 360 200, 720 400 T 1490 400" />
         </svg>
         <!-- Blurred gradient overlay -->
         <div class="hero-gradient-overlay"></div>
+        <!-- Radial glow blob -->
+        <div class="hero-glow"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title" data-i18n="hero.title">Meet Us</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Bilingual IT operations, cloud security leadership, and web application delivery.</p>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Securing your cloud. Scaling your operations. Building what's next.</p>
                 <a class="btn btn-primary btn-pill btn-with-icon" href="mailto:info@garnetcs.com">
                     <span class="btn-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" role="presentation" focusable="false">
@@ -109,29 +119,31 @@
     <section class="logos-section">
         <div class="container">
             <div class="logos-grid">
-                <!-- Add your client/partner logos here -->
                 <div class="logo-item">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logos/aws.webp" alt="AWS Cloud Partner" loading="lazy">
                 </div>
                 <div class="logo-item">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logos/terraform.webp" alt="Terraform Infrastructure" loading="lazy">
                 </div>
                 <div class="logo-item">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logos/kubernetes.webp" alt="Kubernetes Orchestration" loading="lazy">
                 </div>
                 <div class="logo-item">
-                    <img src="./assets/images/logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logos/docker.webp" alt="Docker Containers" loading="lazy">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/logos/linux.webp" alt="Linux Systems" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-section" id="about">
+    <section class="about-section section-light" id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-images">
-                    <img src="./assets/images/about-shapes.png" alt="About Garnet CS" loading="lazy">
+                    <img src="./assets/images/about-shapes.webp" alt="About Garnet CS" loading="lazy">
                 </div>
                 <div class="about-text">
                     <h2 class="section-title" data-i18n="about.title">About Us</h2>
@@ -162,7 +174,7 @@
                         <a class="btn btn-primary btn-small" href="#portfolio" data-i18n="services.cases.0.cta">Read More</a>
                     </div>
                     <div class="case-image">
-                        <img src="./assets/images/polygon-3.png" alt="Fintech Innovations" loading="lazy">
+                        <img src="./assets/images/polygon-3.webp" alt="Fintech Innovations" loading="lazy">
                     </div>
                 </div>
 
@@ -170,8 +182,8 @@
                 <div class="service-case reverse">
                     <div class="case-image">
                         <div class="polygon-group">
-                            <img src="./assets/images/polygon-1.png" alt="Microcomponent Visualization" class="polygon-back" loading="lazy">
-                            <img src="./assets/images/polygon-2.png" alt="Microcomponent Visualization" class="polygon-front" loading="lazy">
+                            <img src="./assets/images/polygon-1.webp" alt="Microcomponent Visualization" class="polygon-back" loading="lazy">
+                            <img src="./assets/images/polygon-2.webp" alt="Microcomponent Visualization" class="polygon-front" loading="lazy">
                         </div>
                     </div>
                     <div class="case-content">
@@ -192,7 +204,7 @@
                         </p>
                     </div>
                     <div class="case-image">
-                        <img src="./assets/images/polygon-4.png" alt="IT Operations and Security" loading="lazy">
+                        <img src="./assets/images/polygon-4.webp" alt="IT Operations and Security" loading="lazy">
                     </div>
                 </div>
 
@@ -200,8 +212,8 @@
                 <div class="service-case reverse">
                     <div class="case-image">
                         <div class="polygon-group">
-                            <img src="./assets/images/polygon-1.png" alt="Financial Sector Innovation" class="polygon-back" loading="lazy">
-                            <img src="./assets/images/polygon-2.png" alt="Financial Sector Innovation" class="polygon-front" loading="lazy">
+                            <img src="./assets/images/polygon-1.webp" alt="Financial Sector Innovation" class="polygon-back" loading="lazy">
+                            <img src="./assets/images/polygon-2.webp" alt="Financial Sector Innovation" class="polygon-front" loading="lazy">
                         </div>
                     </div>
                     <div class="case-content">
@@ -215,17 +227,14 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
+    <!-- Skillset Section -->
+    <section class="skillset-section" id="skillset">
         <div class="container">
-            <h2 class="section-title text-center color-primary" data-i18n="portfolio.title">Portfolio</h2>
-            <p class="section-subtitle text-center" data-i18n="portfolio.subtitle">At Garnet CS, your success is our mission. Let's build your future together.</p>
-            
-            <div class="portfolio-carousel">
-                                <div class="portfolio-track" id="portfolioTrack">
-                    <!-- Portfolio items will be dynamically generated -->
-                </div>
-                            </div>
+            <h2 class="section-title text-center color-primary" data-i18n="skillset.title">Our Skillset</h2>
+            <p class="section-subtitle text-center" data-i18n="skillset.subtitle">Technologies and expertise we bring to every project.</p>
+            <div class="skillset-grid" id="skillsetGrid">
+                <!-- Skill cards will be dynamically generated -->
+            </div>
         </div>
     </section>
 
@@ -242,7 +251,7 @@
     </section>
 
     <!-- How We Work Section -->
-    <section class="how-we-work-section" id="how-we-work">
+    <section class="how-we-work-section section-light" id="how-we-work">
         <div class="container">
             <h2 class="section-title text-center color-primary" data-i18n="howWeWork.title">Here's How We Work</h2>
             <p class="section-subtitle text-center" data-i18n="howWeWork.subtitle">Discover how we make collaboration simple, effective, and tailored to your needs.</p>
@@ -309,7 +318,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./assets/images/footer-logo.png" alt="Garnet CS Logo" loading="lazy">
+                    <img src="./assets/images/logo_gcs_wordsinwhite_transaparent background.png" alt="Garnet CS Logo" loading="lazy">
                 </div>
                 
                 <div class="footer-links">
@@ -330,8 +339,7 @@
                     <div class="footer-column">
                         <h4 data-i18n="footer.contactUs.title">Contact Us</h4>
                         <p>
-                            <span data-i18n="footer.contactUs.email">Email:</span>
-                            <span data-i18n="footer.contactUs.emailAddress">info@garnetcs.com</span>
+                            <a href="mailto:info@garnetcs.com" data-i18n="footer.contactUs.emailAddress">info@garnetcs.com</a>
                         </p>
                     </div>
                 </div>

@@ -29,8 +29,10 @@
 
 ## Commit & Pull Request Guidelines
 
+- Always create a new branch before making changes; use the naming pattern `agent/chore/<short-description>`, `agent/fix/<short-description>`, or `agent/refactor/<short-description>` depending on the type of change.
+- Never push directly to `main` or merge PRs; always open a PR and wait for human review.
+- Open PRs against `main` with a clear title that describes the change and a description that includes context, testing notes (local server command), and screenshots for visual changes.
 - Commit messages are short, sentence-case summaries (e.g., "Clean landing page and align with Figma").
-- PRs should include a concise summary, testing notes (local server command), and screenshots for visual changes.
 
 ## Deployment & Configuration Tips
 

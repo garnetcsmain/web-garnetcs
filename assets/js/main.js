@@ -345,7 +345,7 @@ function initScrollAnimations() {
     }
 
     _scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 // Stagger animation for grid children
                 const delay = entry.target.dataset.animDelay || 0;

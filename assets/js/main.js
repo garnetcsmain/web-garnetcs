@@ -150,7 +150,7 @@ function renderFeatures() {
     grid.innerHTML = features.map((feature, index) => `
         <div class="feature-item" data-anim-delay="${index * 120}">
             <div class="feature-icon">
-                <img src="assets/images/${icons[index]}" alt="${feature.title}">
+                <img src="./assets/images/${icons[index]}" alt="${feature.title}">
             </div>
             <div class="feature-step">${String(index + 1).padStart(2, '0')}</div>
             <div class="feature-content">

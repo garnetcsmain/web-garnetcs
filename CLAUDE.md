@@ -22,25 +22,25 @@
 - Images and icons are named with clear intent (e.g., `icon-lock.svg`, `hero-background.png`).
 
 ## Testing Guidelines
-
-- There is no automated test suite; use manual testing.
 - Verify language switching, responsive breakpoints, and form validation in a local server session.
-- For UI changes, check at least one mobile and one desktop browser.
+- For UI changes, check at least one mobile and one desktop browser. Use Playwright.
 
 ## Commit & Pull Request Guidelines
 
-- Always create a new branch before making changes; use the naming pattern `agent/chore/<short-description>`, `agent/fix/<short-description>`, or `agent/refactor/<short-description>` depending on the type of change.
-- Never push directly to `main` or merge PRs; always open a PR and wait for human review.
-- Open PRs against `main` with a clear title that describes the change and a description that includes context, testing notes (local server command), and screenshots for visual changes.
+- Always create a new branch before making changes; use the naming pattern `chore/<short-description>`, `fix/<short-description>`, or `refactor/<short-description>` depending on the type of change.
+- Never push directly to `main` or merge PRs.
+- Open PRs against `preview` with a clear title that describes the change and a description that includes context, testing notes, and screenshots for visual changes.
 - Commit messages are short, sentence-case summaries (e.g., "Clean landing page and align with Figma").
+- do small commits so human can catch up with work and rever if necesary.
 
 ## Deployment & Configuration Tips
 
 - AWS configuration details live in `aws-config.txt` and `bucket-policy.json`.
 - `deploy.sh` excludes local artifacts like `*/.DS_Store`, `aws-config.txt`, and `cf-config-*.json`; keep those files out of public deploys.
 - If adding new file types, update `deploy.sh` to set correct MIME types and cache headers.
+- There is a existing Github CI/CD pipeline there is not need for manual deployment, but update scripts if necesary.
 
 ## Agent Workflow Notes
 
 - Use `rg`/`rg --files` for fast search and discovery.
-- Prefer running Git and deployment commands directly; if the environment requires approval for networked Git/AWS actions, proceed with approval rather than skipping the step.
+- Prefer running Git commands directly; if the environment requires approval for networked Git/AWS actions, proceed with approval rather than skipping the step.

@@ -4,7 +4,7 @@ A modern, responsive, bilingual (English/Spanish) landing page for Garnet CS, bu
 
 ## 🎯 Project Overview
 
-This single-page website showcases Garnet CS's IT solutions, services, team, and contact information. The design is based on Figma specifications with a focus on clean code, performance, and accessibility.
+This single-page website showcases Garnet CS's IT solutions, services, team, and contact information. The design was based on Figma specifications with a focus on clean code, performance, and accessibility.
 
 ### Live URLs
 
@@ -101,19 +101,6 @@ You can also open `index.html` directly in your browser, though some features ma
 ### Fonts Loading
 Fonts are loaded from Google Fonts via CDN for optimal performance.
 
-## 🌐 Sections
-
-1. **Navigation**: Sticky header with language switcher
-2. **Hero**: Main call-to-action section
-3. **Logos**: Client/partner logos placeholder
-4. **About Us**: Company introduction
-5. **Services**: Three case studies with alternating layouts
-6. **Portfolio**: Scrollable carousel of projects
-7. **Team**: Team member cards
-8. **How We Work**: Six feature cards
-9. **Contact**: Form and contact information cards
-10. **Footer**: Links and company information
-
 ## 🔧 Customization
 
 ### Updating Content
@@ -168,30 +155,17 @@ Place images in `/assets/images/` and reference them:
 
 ## 📝 Contact Form
 
-The contact form markup is currently commented out in `index.html`. Current CTAs (nav + hero) go directly to `mailto:info@garnetcs.com`. When the form is enabled, it opens a `mailto:` draft from `assets/js/main.js`. To implement backend functionality:
-
-1. Create a backend endpoint (e.g., `/api/contact`)
-2. Update the `initContactForm()` function in `main.js`
-3. Add proper error handling and success messages
-
-Example integration:
-
-```javascript
-const response = await fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-});
-```
+Current CTAs (nav + hero) go directly to `mailto:info@garnetcs.com`. When the form is enabled, it opens a `mailto:` draft from `assets/js/main.js`. To implement backend functionality:
 
 ## 🚀 Deployment
 
 ### Deploy to Production (AWS S3 + CloudFront)
 
 The website is configured to deploy to AWS S3 with CloudFront CDN.
-For full infrastructure setup, see `QUICKSTART.md`.
 
-```bash
+Full automated CI/CD with Github Actions.
+Manual Deployment:
+```bash 
 ./deploy.sh
 ```
 
@@ -242,23 +216,6 @@ See `aws-config.txt` for AWS resource configuration.
 - Minimal CSS and JavaScript
 - No external dependencies beyond fonts
 
-## 🐛 Troubleshooting
-
-### Images not loading
-- Check file paths are correct
-- Ensure images are in `/assets/images/`
-- Verify web server is serving static files
-
-### Language switcher not working
-- Check browser console for errors
-- Ensure `translations.js` is loaded before `main.js`
-- Clear localStorage: `localStorage.clear()`
-
-### Carousel not scrolling
-- Ensure JavaScript is enabled
-- Check browser console for errors
-- Verify element IDs match JavaScript selectors
-
 ## 📄 License
 
 © 2024 Garnet CS. All Rights Reserved.
@@ -266,8 +223,8 @@ See `aws-config.txt` for AWS resource configuration.
 ## 👥 Team
 
 Built with ❤️ by the Garnet CS Team
-- Freddy Sulbaran - CEO & CloudOps
-- Jose David Hernandez - Co-Founder & Full Stack Developer
+- Freddy Sulbaran
+- Jose David Hernandez
 
 ## 📞 Support
 

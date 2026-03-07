@@ -55,18 +55,28 @@ function renderSkillset() {
     const grid = document.getElementById('skillsetGrid');
     if (!grid) return;
 
-    const skills = translations[currentLanguage].skillset.skills;
-    const icons = ['icon-1.svg', 'icon-2.svg', 'icon-3.svg', 'icon-4.svg', 'icon-5.svg', 'icon-6.svg'];
+    const categories = translations[currentLanguage].skillset.categories;
+    const allTags = categories.flatMap(cat => cat.tags);
 
-    grid.innerHTML = skills.map((skill, index) => `
-        <div class="skillset-card">
-            <div class="skillset-icon">
-                <img src="./assets/images/${icons[index]}" alt="${skill.title}" loading="lazy">
+    // Split into 3 rows for marquee effect
+    const rowSize = Math.ceil(allTags.length / 3);
+    const rows = [
+        allTags.slice(0, rowSize),
+        allTags.slice(rowSize, rowSize * 2),
+        allTags.slice(rowSize * 2)
+    ];
+
+    grid.innerHTML = rows.map((row, i) => {
+        const duplicated = [...row, ...row];
+        const direction = i % 2 === 0 ? 'marquee-left' : 'marquee-right';
+        return `
+            <div class="skillset-marquee">
+                <div class="skillset-marquee-track ${direction}">
+                    ${duplicated.map(tag => `<span class="skillset-tag">${tag}</span>`).join('')}
+                </div>
             </div>
-            <h3 class="skillset-title">${skill.title}</h3>
-            <p class="skillset-description">${skill.description}</p>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function renderTeamMembers() {
@@ -86,6 +96,42 @@ function renderTeamMembers() {
         </div>
     `).join('');
 
+    // Build scroll indicator dots for mobile carousel
+    const dotsContainer = document.getElementById('teamDots');
+    if (dotsContainer) {
+        dotsContainer.innerHTML = members.map((_, i) =>
+            `<span class="team-dot${i === 0 ? ' active' : ''}"></span>`
+        ).join('');
+
+        const cards = grid.querySelectorAll('.team-card');
+        const dots = dotsContainer.querySelectorAll('.team-dot');
+
+        // Set first card active
+        if (cards.length) cards[0].classList.add('active');
+
+        if (cards.length && dots.length) {
+            // Track scroll to update dots and active card
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(cards).indexOf(entry.target);
+                        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+                        cards.forEach((card, i) => card.classList.toggle('active', i === index));
+                    }
+                });
+            }, { root: grid, threshold: 0.6 });
+
+            cards.forEach(card => observer.observe(card));
+
+            // Clickable dots to scroll to card
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                });
+            });
+        }
+    }
+
     // Re-apply scroll animations and card glow to new elements
     initScrollAnimations();
     initCardGlow();
@@ -102,14 +148,25 @@ function renderFeatures() {
     const icons = ['icon-1.svg', 'icon-2.svg', 'icon-3.svg', 'icon-4.svg', 'icon-5.svg', 'icon-6.svg'];
 
     grid.innerHTML = features.map((feature, index) => `
-        <div class="feature-item">
+        <div class="feature-item" data-anim-delay="${index * 120}">
             <div class="feature-icon">
-                <img src="./assets/images/${icons[index]}" alt="${feature.title}" loading="lazy" onerror="console.error('Failed to load:', this.src)">
+                <img src="./assets/images/${icons[index]}" alt="${feature.title}">
             </div>
-            <h3 class="feature-title">${feature.title}</h3>
-            <p class="feature-description">${feature.description}</p>
+            <div class="feature-step">${String(index + 1).padStart(2, '0')}</div>
+            <div class="feature-content">
+                <h3 class="feature-title">
+                    <span class="desktop-only">${feature.title}</span>
+                    <span class="mobile-only">${feature.mobileTitle || feature.title}</span>
+                </h3>
+                <p class="feature-description">
+                    <span class="desktop-only">${feature.description}</span>
+                    <span class="mobile-only">${feature.mobileDesc || feature.description}</span>
+                </p>
+            </div>
         </div>
     `).join('');
+
+    initScrollAnimations();
 }
 
 function renderContactInfo() {
@@ -120,15 +177,17 @@ function renderContactInfo() {
     }
 
     const info = translations[currentLanguage].contact.info;
-    const icons = ['icon-location.svg', 'icon-envelope.svg', 'icon-lock.svg', 'icon-clock.svg'];
+    const icons = ['icon-location.svg', 'icon-envelope.svg', 'icon-lock.svg'];
 
     grid.innerHTML = info.map((item, index) => `
         <div class="contact-info-card">
             <div class="contact-info-icon">
                 <img src="./assets/images/${icons[index]}" alt="${item.title}" loading="lazy" onerror="console.error('Failed to load:', this.src)">
             </div>
-            <h3 class="contact-info-title">${item.title}</h3>
-            <div class="contact-info-description">${item.description}</div>
+            <div class="contact-info-content">
+                <h3 class="contact-info-title">${item.title}</h3>
+                <div class="contact-info-description">${item.description}</div>
+            </div>
         </div>
     `).join('');
 }
@@ -313,7 +372,7 @@ function initCardGlow() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const glowCards = document.querySelectorAll(
-        '.feature-item, .skillset-card, .contact-info-card'
+        '.feature-item, .skillset-tag, .contact-info-card'
     );
 
     glowCards.forEach(card => {
@@ -371,8 +430,15 @@ function initScrollAnimations() {
     if (_scrollObserver) _scrollObserver.disconnect();
 
     const animatedElements = document.querySelectorAll(
-        '.service-case, .skillset-card, .team-card, .feature-item, .contact-info-card, .about-content, .drop-us-line, .section-title, .section-subtitle'
+        '.service-case, .skillset-card, .team-card, .feature-item, .contact-info-card, .about-content, .drop-us-line, .section-title, .section-subtitle, .about-highlight-item'
     );
+
+    // Add staggered delays to about highlights (applied after stagger loop below)
+    const highlightDelayOverrides = new Set();
+    document.querySelectorAll('.about-highlight-item').forEach((item, i) => {
+        highlightDelayOverrides.add(item);
+        item.dataset.animDelay = (i + 1) * 200;
+    });
 
     if (!('IntersectionObserver' in window)) {
         animatedElements.forEach(el => el.classList.add('scroll-visible'));
@@ -446,8 +512,8 @@ function initAboutTextReveal() {
     const wordSpans = description.querySelectorAll('.word-reveal');
     if (wordSpans.length === 0) return;
 
-    // Mark final CTA sentence for emphasis
-    const ctaStart = words.findLastIndex(w => w === "Let's" || w === 'Construyamos');
+    // Mark "focus on growth" / "enfoques en crecer" for emphasis
+    const ctaStart = words.findIndex(w => w === 'focus' || w === 'enfoques');
     if (ctaStart !== -1) {
         wordSpans.forEach((span, i) => {
             if (i >= ctaStart) span.classList.add('word-reveal-cta');

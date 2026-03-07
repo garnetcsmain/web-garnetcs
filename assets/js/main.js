@@ -433,8 +433,10 @@ function initScrollAnimations() {
         '.service-case, .skillset-card, .team-card, .feature-item, .contact-info-card, .about-content, .drop-us-line, .section-title, .section-subtitle, .about-highlight-item'
     );
 
-    // Add staggered delays to about highlights
+    // Add staggered delays to about highlights (applied after stagger loop below)
+    const highlightDelayOverrides = new Set();
     document.querySelectorAll('.about-highlight-item').forEach((item, i) => {
+        highlightDelayOverrides.add(item);
         item.dataset.animDelay = (i + 1) * 200;
     });
 

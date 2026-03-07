@@ -1678,7 +1678,6 @@ a.email-method:hover .email-highlight {
     }
 
     .case-image {
-        position: relative;
         opacity: 0.12;
         position: absolute;
         right: -20px;
